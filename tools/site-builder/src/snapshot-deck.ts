@@ -36,30 +36,32 @@ export async function snapshotDeck({
 
   try {
     const browser = await chromium.launch();
-    const page = await browser.newPage({
-      viewport: { width: 1200, height: 630 },
-    });
-    const url = `http://localhost:${PREVIEW_PORT}${deckBase}#1`;
-    await page.goto(url, { waitUntil: "networkidle" });
-    await page.waitForSelector("html[data-hydrated]", { timeout: 10_000 });
-    await page.evaluate(() => document.fonts.ready);
+    try {
+      const page = await browser.newPage({
+        viewport: { width: 1200, height: 630 },
+      });
+      const url = `http://localhost:${PREVIEW_PORT}${deckBase}#1`;
+      await page.goto(url, { waitUntil: "networkidle" });
+      await page.waitForSelector("html[data-hydrated]", { timeout: 10_000 });
+      await page.evaluate(() => document.fonts.ready);
 
-    const ogPath = path.join(distSiteDir, "og", `${card.slug}.png`);
-    await mkdir(path.dirname(ogPath), { recursive: true });
-    await page.screenshot({ path: ogPath, type: "png" });
+      const ogPath = path.join(distSiteDir, "og", `${card.slug}.png`);
+      await mkdir(path.dirname(ogPath), { recursive: true });
+      await page.screenshot({ path: ogPath, type: "png" });
 
-    let html = await page.content();
-    html = injectMetaTags(html, {
-      title: card.title,
-      description: card.subtitle || card.title,
-      ogImage: `/asgard-slides/og/${card.slug}.png`,
-      canonicalUrl: `${SITE_BASE_URL}/${card.slug}/`,
-      lang: card.lang,
-    });
+      let html = await page.content();
+      html = injectMetaTags(html, {
+        title: card.title,
+        description: card.subtitle || card.title,
+        ogImage: `/asgard-slides/og/${card.slug}.png`,
+        canonicalUrl: `${SITE_BASE_URL}/${card.slug}/`,
+        lang: card.lang,
+      });
 
-    await writeFile(path.join(distSiteDir, card.slug, "index.html"), html);
-
-    await browser.close();
+      await writeFile(path.join(distSiteDir, card.slug, "index.html"), html);
+    } finally {
+      await browser.close();
+    }
   } finally {
     await stopVitePreview(preview);
   }
