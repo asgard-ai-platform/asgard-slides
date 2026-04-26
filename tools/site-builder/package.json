@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./src/build-site.ts",
   "scripts": {
-    "build": "tsx src/build-site.ts",
+    "start": "tsx src/build-site.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit"

@@ -3,8 +3,7 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
     "lib": ["ES2023"],
-    "types": ["node"],
-    "moduleResolution": "bundler"
+    "types": ["node"]
   },
   "include": ["src"]
 }
