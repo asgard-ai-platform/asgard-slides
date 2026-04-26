@@ -24,6 +24,10 @@ export function Deck() {
     onCloseOverview: () => setOverviewOpen(false),
   });
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-hydrated", "true");
+  }, []);
+
   // Touch / drag — inline (we need state, not just callbacks).
   const startX = useRef(0);
   const startY = useRef(0);
