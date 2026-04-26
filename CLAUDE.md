@@ -32,6 +32,19 @@ pnpm -F deck-kit typecheck
 pnpm -r build / lint / test / typecheck          # workspace-wide
 ```
 
+### Site build (GitHub Pages)
+
+`pnpm build:site` runs `tools/site-builder` end-to-end:
+
+1. Builds each deck SPA with `DECK_BASE=/asgard-slides/<slug>/`.
+2. Spins up `vite preview`, snapshots HTML via Playwright, and screenshots a 1200×630 OG image of slide #1.
+3. Renders the static landing page from each deck's `package.json` description, `chapters.ts` first chapter, and optional `src/site-meta.ts`.
+4. Writes everything to `dist-site/` (gitignored).
+
+`.github/workflows/deploy.yml` runs this on every push to `main` and deploys to GitHub Pages.
+
+Local prerequisite: `pnpm exec playwright install chromium` (one-time).
+
 Run a single test file with: `pnpm -F deck-kit exec vitest run src/path/to/file.test.ts`
 
 PDF / ZIP export of a deck (Playwright-driven):

@@ -46,6 +46,16 @@ pnpm -r test
 See `packages/deck-kit/README.md` for the slide module contract and the kit's
 public API.
 
+## Deploy
+
+Push to `main` and GitHub Actions builds + deploys to
+`https://asgard-ai-platform.github.io/asgard-slides/`. Each deck becomes a
+pre-rendered HTML at `<slug>/` with its own OG image at `og/<slug>.png`,
+and the root is a static landing listing every deck.
+
+To build locally: `pnpm exec playwright install chromium && pnpm build:site`.
+Output lands in `dist-site/`.
+
 ## Conventions
 
 - Slide filenames: `NN-name.tsx`, sequential, no gaps. `discoverSlides()`
