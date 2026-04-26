@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  base: process.env.DECK_BASE ?? "/",
   plugins: [react()],
   resolve: {
     alias: {
