@@ -17,7 +17,7 @@ export default function Slide() {
       <Kicker>Demo 1 · Evidence</Kicker>
       <h2>MCP live query：真的打到實價登錄資料源</h2>
       <DemoShot
-        src="/assets/demos/mcp-live-query.png"
+        src="assets/demos/mcp-live-query.png"
         alt="MCP live query screenshot"
         size="large"
       />

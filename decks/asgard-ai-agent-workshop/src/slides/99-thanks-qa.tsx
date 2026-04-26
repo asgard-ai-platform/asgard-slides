@@ -23,7 +23,7 @@ export default function Slide() {
       </div>
 
       <div className={styles.speakerStrip}>
-        <img className={styles.avatar} src="/assets/wjwang-avatar.png" alt="WJWang avatar" />
+        <img className={styles.avatar} src="assets/wjwang-avatar.png" alt="WJWang avatar" />
         <div className={styles.speakerInfo}>
           <div className={styles.speakerName}>Wei · WJWang</div>
           <div className={styles.speakerRole}>Asgard AI CEO · 產品與平台工程實作者</div>

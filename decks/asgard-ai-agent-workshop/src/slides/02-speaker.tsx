@@ -24,10 +24,10 @@ export default function Slide() {
           <p>從 MIS、平台工程、LegalTech、影音串流、電商與企業數位轉型一路做到 AI agent infrastructure。今天不是只講概念，而是用真實開源 repo 與實作流程拆給大家看。</p>
           <div className={styles.logoStrip}>
             <span className={styles.miniLogo}>
-              <img src="/assets/asgard/asgard-logo-color.svg" alt="Asgard logo" />Asgard AI
+              <img src="assets/asgard/asgard-logo-color.svg" alt="Asgard logo" />Asgard AI
             </span>
             <span className={styles.miniLogo}>
-              <img src="/assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />Yggdrasil Open Source
+              <img src="assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />Yggdrasil Open Source
             </span>
           </div>
         </Card>

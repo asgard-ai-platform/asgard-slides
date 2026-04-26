@@ -17,7 +17,7 @@ export default function Slide() {
       <Kicker>Demo 2 · Evidence</Kicker>
       <h2>Plugin routing：workflow 與 skills 被組成可攜資產</h2>
       <DemoShot
-        src="/assets/demos/plugin-routing.png"
+        src="assets/demos/plugin-routing.png"
         alt="Plugin routing screenshot"
         size="large"
       />

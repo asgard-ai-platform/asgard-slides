@@ -31,7 +31,7 @@ export default function Slide() {
           rel="noopener noreferrer"
         >
           <span className={styles.iconBox}>
-            <img src="/assets/asgard/asgard-logo-color.svg" alt="Asgard logo" />
+            <img src="assets/asgard/asgard-logo-color.svg" alt="Asgard logo" />
           </span>
           <span className={styles.resourceBody}>
             <span className={styles.resourceLabel}>Official</span>
@@ -48,7 +48,7 @@ export default function Slide() {
           rel="noopener noreferrer"
         >
           <span className={styles.iconBox}>
-            <img src="/assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />
+            <img src="assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />
           </span>
           <span className={styles.resourceBody}>
             <span className={styles.resourceLabel}>Asset Vault</span>
@@ -82,7 +82,7 @@ export default function Slide() {
           rel="noopener noreferrer"
         >
           <span className={styles.iconBox}>
-            <img className={styles.avatar} src="/assets/wjwang-avatar.png" alt="WJWang avatar" />
+            <img className={styles.avatar} src="assets/wjwang-avatar.png" alt="WJWang avatar" />
           </span>
           <span className={styles.resourceBody}>
             <span className={styles.resourceLabel}>Contact Speaker</span>

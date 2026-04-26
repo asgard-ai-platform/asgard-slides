@@ -22,7 +22,7 @@ export default function Slide() {
       <CardGrid columns={3}>
         <ProductCard
           product="odin"
-          iconSrc="/assets/asgard/odin-logo-color.svg"
+          iconSrc="assets/asgard/odin-logo-color.svg"
           iconAlt="Odin logo"
           title={<><Tag>Odin</Tag><h3 style={{ marginTop: 10 }}>Asgard Studio</h3></>}
         >
@@ -30,7 +30,7 @@ export default function Slide() {
         </ProductCard>
         <ProductCard
           product="mimir"
-          iconSrc="/assets/asgard/mimir-logo-color.svg"
+          iconSrc="assets/asgard/mimir-logo-color.svg"
           iconAlt="Mimir logo"
           title={<><Tag>Mimir</Tag><h3 style={{ marginTop: 10 }}>Data Insight</h3></>}
         >
@@ -38,7 +38,7 @@ export default function Slide() {
         </ProductCard>
         <ProductCard
           product="sindri"
-          iconSrc="/assets/asgard/sindri-logo-color.svg"
+          iconSrc="assets/asgard/sindri-logo-color.svg"
           iconAlt="Sindri logo"
           title={<><Tag>Sindri</Tag><h3 style={{ marginTop: 10 }}>Agent Hub</h3></>}
         >
@@ -47,10 +47,10 @@ export default function Slide() {
       </CardGrid>
       <div className={styles.logoStrip}>
         <span className={styles.miniLogo}>
-          <img src="/assets/asgard/heimdall-logo-color.svg" alt="Heimdall logo" />Domain AI：Heimdall Media & PR AI
+          <img src="assets/asgard/heimdall-logo-color.svg" alt="Heimdall logo" />Domain AI：Heimdall Media & PR AI
         </span>
         <span className={styles.miniLogo}>
-          <img src="/assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />Open Source：Yggdrasil
+          <img src="assets/asgard/yggdrasil-logo-color.svg" alt="Yggdrasil logo" />Open Source：Yggdrasil
         </span>
       </div>
       <Talkbox compact>

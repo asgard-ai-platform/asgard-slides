@@ -21,7 +21,7 @@ export default function Slide() {
     <>
       <div className={styles.brandLockup}>
         <span className={styles.logoOrb}>
-          <img src="/assets/asgard/asgard-logo-color.svg" alt="Asgard AI logo" />
+          <img src="assets/asgard/asgard-logo-color.svg" alt="Asgard AI logo" />
         </span>
         <div>
           <div className={styles.brandName}>Asgard AI Workshop</div>

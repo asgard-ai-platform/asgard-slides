@@ -17,7 +17,7 @@ export default function Slide() {
       <Kicker>Demo 1 · Explanation</Kicker>
       <h2>MCP server 測試畫面：connector 要能工程驗收</h2>
       <DemoShot
-        src="/assets/demos/mcp-tests.png"
+        src="assets/demos/mcp-tests.png"
         alt="MCP package tests screenshot"
         size="medium"
       />

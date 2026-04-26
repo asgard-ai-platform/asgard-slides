@@ -22,7 +22,7 @@ export default function Slide() {
       <CardGrid columns={4}>
         <ProductCard
           product="yggdrasil"
-          iconSrc="/assets/asgard/yggdrasil-logo-color.svg"
+          iconSrc="assets/asgard/yggdrasil-logo-color.svg"
           iconAlt="Yggdrasil logo"
           title={<h3>MCP Servers</h3>}
         >
@@ -30,7 +30,7 @@ export default function Slide() {
         </ProductCard>
         <ProductCard
           product="yggdrasil"
-          iconSrc="/assets/asgard/yggdrasil-logo-color.svg"
+          iconSrc="assets/asgard/yggdrasil-logo-color.svg"
           iconAlt="Yggdrasil logo"
           title={<h3>Skills</h3>}
         >
@@ -38,7 +38,7 @@ export default function Slide() {
         </ProductCard>
         <ProductCard
           product="yggdrasil"
-          iconSrc="/assets/asgard/yggdrasil-logo-color.svg"
+          iconSrc="assets/asgard/yggdrasil-logo-color.svg"
           iconAlt="Yggdrasil logo"
           title={<h3>Solution Bundles</h3>}
         >
@@ -46,7 +46,7 @@ export default function Slide() {
         </ProductCard>
         <ProductCard
           product="yggdrasil"
-          iconSrc="/assets/asgard/yggdrasil-logo-color.svg"
+          iconSrc="assets/asgard/yggdrasil-logo-color.svg"
           iconAlt="Yggdrasil logo"
           title={<h3>Workflows</h3>}
         >

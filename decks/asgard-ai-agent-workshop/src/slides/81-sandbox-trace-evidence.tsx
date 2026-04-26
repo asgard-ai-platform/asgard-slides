@@ -17,7 +17,7 @@ export default function Slide() {
       <Kicker>Demo 3 · Evidence</Kicker>
       <h2>Sandbox trace：畫面要看 agent 實際做了哪些事</h2>
       <DemoShot
-        src="/assets/demos/sandbox-trace.png"
+        src="assets/demos/sandbox-trace.png"
         alt="Sandbox agent trace screenshot"
         size="large"
       />
