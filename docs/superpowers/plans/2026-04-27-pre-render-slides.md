@@ -190,7 +190,9 @@ Then inspect:
 grep -E 'href="|src="' decks/asgard-ai-agent-workshop/dist/index.html
 ```
 
-Expected: every `href` / `src` is prefixed with `/asgard-slides/asgard-ai-agent-workshop/`.
+Expected:
+- Vite-generated `<script>` and `<link rel="stylesheet">` (the JS/CSS bundles): URLs prefixed with `/asgard-slides/asgard-ai-agent-workshop/`.
+- The two static `<link>` hrefs we authored (`assets/asgard/...`): stay relative (no leading `/`, no prefix). Vite only rewrites absolute paths in `index.html`. Relative paths resolve against the document URL at runtime, so `/asgard-slides/asgard-ai-agent-workshop/index.html` + `href="assets/..."` correctly resolves to `/asgard-slides/asgard-ai-agent-workshop/assets/...`. This is intentional and more deploy-portable than hardcoded prefixes.
 
 - [ ] **Step 5: Commit**
 
