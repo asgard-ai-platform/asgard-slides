@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 import { chromium } from "playwright";
 import { spawn, type ChildProcess } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
