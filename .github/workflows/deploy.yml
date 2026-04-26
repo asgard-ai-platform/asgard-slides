@@ -40,7 +40,7 @@ jobs:
           key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install Playwright Chromium
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm -F site-builder exec playwright install --with-deps chromium
 
       - name: Build site
         run: pnpm build:site
