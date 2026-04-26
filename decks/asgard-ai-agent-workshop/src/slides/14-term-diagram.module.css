@@ -1,0 +1,133 @@
+/* Nested-boxes diagram showing prompt ⊂ context ⊂ harness, with RAG/memory feeding context. */
+.nest {
+  position: relative;
+  height: 360px;
+  margin-top: 18px;
+  border: 2px solid var(--green);
+  border-radius: 18px;
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 0 38px rgba(16, 185, 129, 0.10);
+  padding: 22px 28px;
+  overflow: hidden;
+}
+
+.nestLabel {
+  position: absolute;
+  top: 10px;
+  left: 18px;
+  color: #6ee7b7;
+  font: 700 14px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contextBox {
+  position: absolute;
+  left: 80px;
+  right: 200px;
+  top: 70px;
+  bottom: 36px;
+  border: 2px solid var(--cyan);
+  border-radius: 14px;
+  background: rgba(6, 182, 212, 0.08);
+  padding: 18px 22px;
+}
+
+.contextLabel {
+  color: var(--cyan2);
+  font: 700 14px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.contextDesc {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.36;
+}
+
+.promptBox {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  bottom: 18px;
+  border: 2px solid var(--amber);
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.10);
+  padding: 11px 16px;
+}
+
+.promptLabel {
+  color: var(--amber);
+  font: 800 14px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.promptDesc {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 12px;
+  line-height: 1.32;
+}
+
+.ragSupply {
+  position: absolute;
+  right: 18px;
+  top: 90px;
+  width: 162px;
+  padding: 11px 13px;
+  border: 1.5px dashed rgba(168, 85, 247, 0.55);
+  border-radius: 12px;
+  background: rgba(168, 85, 247, 0.10);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ragLabel {
+  display: block;
+  color: var(--purple);
+  font: 800 13px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ragDesc {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.32;
+}
+
+.ragArrow {
+  position: absolute;
+  right: 184px;
+  top: 124px;
+  color: var(--purple);
+  font: 900 22px var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  /* Drop absolute positioning; switch to a flow layout that conveys
+     the same containment relationship without overlapping. */
+  .nest {
+    height: auto;
+    padding: 36px 14px 14px;
+  }
+  .contextBox {
+    position: static;
+    margin-top: 8px;
+  }
+  .promptBox {
+    position: static;
+    margin-top: 14px;
+  }
+  .ragSupply {
+    position: static;
+    width: auto;
+    margin-top: 12px;
+  }
+  .ragArrow { display: none; }
+  .contextLabel, .promptLabel, .ragLabel { font-size: 12px; }
+  .contextDesc, .promptDesc, .ragDesc { font-size: 12px; }
+}

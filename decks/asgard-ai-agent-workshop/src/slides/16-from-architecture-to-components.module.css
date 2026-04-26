@@ -1,0 +1,116 @@
+/* Tree: Harness in the middle, four components branching off it. */
+.tree {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px 60px 1fr;
+  gap: 14px;
+  margin-top: 22px;
+  align-items: center;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 200px;
+  padding: 22px;
+  border: 2px solid var(--green);
+  border-radius: 18px;
+  background: rgba(16, 185, 129, 0.10);
+  box-shadow: 0 0 38px rgba(16, 185, 129, 0.14);
+}
+
+.centerName {
+  display: block;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 860;
+  line-height: 1.05;
+}
+
+.centerSub {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 620;
+  line-height: 1.36;
+}
+
+.connectors {
+  position: relative;
+  height: 100%;
+}
+
+.branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.branch {
+  position: relative;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 0 22px rgba(6, 182, 212, 0.05);
+}
+
+.branchTag {
+  display: inline-block;
+  padding: 2px 7px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(6, 182, 212, 0.30);
+  border-radius: 6px;
+  background: rgba(6, 182, 212, 0.10);
+  color: var(--cyan2);
+  font: 700 11px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.branchName {
+  display: block;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.branchDesc {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.36;
+}
+
+/* Connector dot rendered to the LEFT of every branch card, joined to a vertical
+   spine that runs through the connectors column. */
+.branch::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--cyan));
+}
+
+.spine {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  bottom: 14%;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.45), transparent);
+}
+
+@media (max-width: 900px) {
+  .tree { grid-template-columns: 1fr; }
+  .connectors { display: none; }
+  .branches { grid-template-columns: 1fr; }
+  .branch::before { display: none; }
+}

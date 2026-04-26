@@ -1,0 +1,36 @@
+.talkbox {
+  margin-top: 14px;
+  padding: 12px 15px;
+  border: 1px solid rgba(6, 182, 212, 0.24);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.075), rgba(255, 255, 255, 0.018));
+  box-shadow: 0 0 28px rgba(6, 182, 212, 0.06);
+}
+
+.talkbox b {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--cyan2);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.talkbox p {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 16px;
+  line-height: 1.34;
+}
+
+.talkbox ul {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 16px;
+  line-height: 1.32;
+}
+
+.talkbox li { margin: 4px 0; }
+
+.compact { margin-top: 10px; padding: 10px 12px; }
+.compact p, .compact ul { font-size: 15px; line-height: 1.25; }

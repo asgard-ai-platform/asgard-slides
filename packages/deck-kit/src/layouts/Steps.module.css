@@ -1,0 +1,17 @@
+.steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 9px; margin-top: 24px; }
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+}
+
+.step {
+  min-height: 88px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 0 26px rgba(6, 182, 212, 0.05);
+}
+
+.step b { display: block; color: var(--amber); font: 850 19px var(--font-mono); }
+.step span { display: block; margin-top: 7px; font-size: 14px; line-height: 1.22; font-weight: 680; }

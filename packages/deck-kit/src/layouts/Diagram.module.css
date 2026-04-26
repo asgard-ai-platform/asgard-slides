@@ -1,0 +1,22 @@
+.diagram {
+  position: relative;
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012));
+  box-shadow: 0 0 38px rgba(59, 130, 246, 0.08);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.diagram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan2), transparent);
+  opacity: 0.45;
+}

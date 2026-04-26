@@ -1,0 +1,16 @@
+.flow {
+  display: grid;
+  gap: 10px;
+  align-items: center;
+}
+
+.arrow {
+  color: var(--amber);
+  font: 900 28px var(--font-mono);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .flow { grid-template-columns: 1fr !important; }
+  .arrow { transform: rotate(90deg); }
+}

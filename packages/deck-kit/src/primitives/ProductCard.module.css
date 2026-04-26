@@ -1,0 +1,36 @@
+.productCard {
+  --accent: var(--cyan);
+}
+
+.productCard::before {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.72;
+}
+
+.productHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.productIcon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.productIcon img { width: 36px; height: 36px; object-fit: contain; }
+
+.odin       { --accent: var(--green); }
+.mimir      { --accent: var(--rose); }
+.sindri     { --accent: var(--purple); }
+.heimdall   { --accent: var(--amber); }
+.yggdrasil  { --accent: var(--green); }
+.asgard     { --accent: var(--blue); }

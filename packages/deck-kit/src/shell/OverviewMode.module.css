@@ -1,0 +1,174 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(5, 8, 18, 0.96);
+  overflow-y: auto;
+  padding: 24px 24px 80px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.hint {
+  font: 13px var(--font-mono);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.closeBtn {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink);
+  font: 700 14px var(--font-mono);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.chapter {
+  margin-bottom: 28px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.chapterActive {
+  border-color: rgba(34, 211, 238, 0.30);
+  background: rgba(6, 182, 212, 0.04);
+  box-shadow: 0 0 28px rgba(6, 182, 212, 0.05);
+}
+
+.chapterHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chapterNum {
+  color: var(--cyan2);
+  font: 800 12px var(--font-mono);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.chapterTitle {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.chapterSubtitle {
+  flex: 1 1 auto;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  line-height: 1.36;
+}
+
+.chapterCount {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font: 700 11px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+/* Lightweight cards — no actual slide rendering. Browser can paint these
+   in tens of microseconds each, so fast scrolling 98 of them is fine. */
+.thumb {
+  position: relative;
+  display: block;
+  text-align: left;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 120ms ease, transform 120ms ease;
+  /* Skip layout / paint for off-screen items as additional protection. */
+  content-visibility: auto;
+  contain-intrinsic-size: 180px 110px;
+}
+
+.thumb:hover { border-color: var(--cyan); transform: translateY(-2px); }
+
+.thumb.active {
+  border-color: var(--green);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.25);
+}
+
+/* Top accent bar coloured by the slide's theme — gives a quick visual
+   sense of which "kind" of slide it is without rendering content. */
+.thumbAccent {
+  height: 4px;
+  background: var(--cyan);
+}
+.thumb[data-variant="light"] .thumbAccent { background: var(--green); }
+.thumb[data-variant="paper"] .thumbAccent { background: var(--purple); }
+
+.thumbBody {
+  padding: 12px 14px;
+  display: grid;
+  gap: 6px;
+}
+
+.thumbNo {
+  color: rgba(255, 255, 255, 0.45);
+  font: 800 12px var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.thumbSection {
+  color: var(--cyan2);
+  font: 700 11px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.thumbTitle {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  line-height: 1.32;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .overlay { padding: 16px 12px 80px; }
+  .chapter { margin-bottom: 18px; padding: 10px 12px; }
+  .chapterHeader { gap: 8px; margin-bottom: 8px; padding-bottom: 6px; }
+  .chapterTitle { font-size: 17px; }
+  .chapterSubtitle { font-size: 12px; flex-basis: 100%; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .thumbBody { padding: 10px 12px; }
+  .thumbTitle { font-size: 13px; }
+}

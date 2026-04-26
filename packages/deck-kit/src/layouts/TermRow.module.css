@@ -1,0 +1,31 @@
+.termStack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.termRow {
+  display: grid;
+  grid-template-columns: 190px 1fr 1.15fr;
+  gap: 12px;
+  align-items: stretch;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.termRow b { display: flex; align-items: center; color: var(--cyan2); font-size: 20px; }
+.termRow p { color: rgba(255, 255, 255, 0.85); font-size: 15px; line-height: 1.28; }
+.termRow small { display: block; color: var(--muted); font-size: 13px; line-height: 1.26; }
+
+@media (max-width: 900px) {
+  .termRow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .termRow b { font-size: 18px; }
+  .termRow p { font-size: 14px; }
+  .termRow small { font-size: 12px; }
+}

@@ -1,0 +1,29 @@
+.stackDiagram {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr;
+  gap: 9px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.stackCard {
+  min-height: 132px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.stackCard b { display: block; color: var(--cyan2); font-size: 19px; }
+.stackCard p { margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.26; }
+
+.arrow {
+  color: var(--amber);
+  font: 900 28px var(--font-mono);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .stackDiagram { grid-template-columns: 1fr; }
+  .arrow { transform: rotate(90deg); }
+}

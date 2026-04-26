@@ -1,0 +1,45 @@
+{
+  "name": "asgard-ai-agent-workshop",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Sandboxed Agent 實戰 — 60-min deck for the Asgard AI agent workshop.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "export:pdf": "vite build && (vite preview --port 4173 --strictPort & echo $! > .preview.pid) && sleep 2 && tsx scripts/export-pdf.ts && kill $(cat .preview.pid) && rm .preview.pid",
+    "export:zip": "vite build && tsx scripts/export-zip.ts",
+    "export:all": "pnpm run export:pdf && pnpm run export:zip"
+  },
+  "dependencies": {
+    "deck-kit": "workspace:*",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/adm-zip": "^0.5.8",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/ui": "^4.1.5",
+    "adm-zip": "^0.5.17",
+    "eslint": "^10.2.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.5.0",
+    "playwright": "^1.59.1",
+    "tsx": "^4.21.0",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
+  }
+}

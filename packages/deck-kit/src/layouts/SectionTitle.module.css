@@ -1,0 +1,2 @@
+.titleStack { display: grid; gap: 16px; margin-top: 24px; }
+.lead { max-width: 900px; color: var(--muted); font-size: 22px; line-height: 1.38; font-weight: 520; }

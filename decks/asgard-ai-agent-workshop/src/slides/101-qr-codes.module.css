@@ -1,0 +1,60 @@
+.qrGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.qrCard {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 8px;
+  padding: 16px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+.qrFrame {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.qrFrame > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 160px;
+}
+
+.qrLabel {
+  color: var(--cyan2);
+  font: 800 11px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.qrUrl {
+  color: rgba(255, 255, 255, 0.84);
+  font: 600 12px var(--font-mono);
+  word-break: break-all;
+  line-height: 1.32;
+}
+
+.footHint {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .qrGrid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .qrCard { padding: 12px 10px; }
+  .qrFrame > svg { max-width: 130px; }
+  .qrUrl { font-size: 11px; }
+}

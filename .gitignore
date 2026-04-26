@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+exports
+.vite
+.turbo
+.tsbuildinfo
+
+*.local
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example

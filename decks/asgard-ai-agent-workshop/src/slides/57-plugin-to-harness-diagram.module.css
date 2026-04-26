@@ -1,0 +1,53 @@
+.assetGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.assetCol {
+  display: grid;
+  gap: 10px;
+}
+
+.asset {
+  min-height: 48px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 14px;
+  font-weight: 760;
+}
+
+.asset small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 520;
+  line-height: 1.2;
+}
+
+.hub {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 18px;
+  border: 2px solid rgba(34, 211, 238, 0.42);
+  border-radius: 18px;
+  background: rgba(6, 182, 212, 0.08);
+  box-shadow: 0 0 42px rgba(6, 182, 212, 0.12);
+}
+
+.hub b { font-size: 22px; color: #fff; }
+.hub span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.28; }
+
+@media (max-width: 900px) {
+  .assetGrid { grid-template-columns: 1fr; gap: 10px; }
+  .hub { min-height: 110px; padding: 14px; }
+  .hub b { font-size: 19px; }
+  .hub span { font-size: 12px; }
+}

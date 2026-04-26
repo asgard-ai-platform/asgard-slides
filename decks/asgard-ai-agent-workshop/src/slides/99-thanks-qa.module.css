@@ -1,0 +1,120 @@
+.heroBlock {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 36px auto 28px;
+}
+
+.bigQa {
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.96;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #fff 0%, #67e8f9 50%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 32px rgba(34, 211, 238, 0.18));
+}
+
+.subtitle {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: clamp(18px, 2.4vw, 24px);
+  font-weight: 600;
+}
+
+.speakerStrip {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.012));
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logoOrb {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  border: 1px solid rgba(6, 182, 212, 0.42);
+  border-radius: 22px;
+  background: rgba(10, 15, 30, 0.78);
+  box-shadow: 0 0 42px rgba(6, 182, 212, 0.22);
+  overflow: hidden;
+}
+
+.logoOrb img { width: 58px; height: 58px; object-fit: contain; }
+
+.avatar {
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(6, 182, 212, 0.42);
+  border-radius: 50%;
+  background: rgba(10, 15, 30, 0.78);
+  box-shadow: 0 0 42px rgba(6, 182, 212, 0.22);
+  object-fit: cover;
+}
+
+.speakerInfo { display: grid; gap: 4px; }
+
+.speakerName {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 860;
+}
+
+.speakerRole {
+  color: var(--cyan2);
+  font-size: 15px;
+  font-weight: 720;
+}
+
+.contactList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactCard {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  text-align: center;
+}
+
+.contactLabel {
+  display: block;
+  color: var(--cyan2);
+  font: 800 11px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactValue {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.90);
+  font: 600 13px var(--font-mono);
+  word-break: break-all;
+}
+
+@media (max-width: 900px) {
+  .speakerStrip { grid-template-columns: 1fr; text-align: center; padding: 14px 16px; }
+  .logoOrb, .avatar { margin: 0 auto; }
+  .contactList { grid-template-columns: 1fr 1fr; }
+}

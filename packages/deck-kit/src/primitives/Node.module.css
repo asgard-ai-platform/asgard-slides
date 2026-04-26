@@ -1,0 +1,13 @@
+.node {
+  min-height: 94px;
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.node b { color: var(--cyan2); font-size: 18px; line-height: 1.12; }
+.node span { color: var(--muted); font-size: 14px; line-height: 1.25; }

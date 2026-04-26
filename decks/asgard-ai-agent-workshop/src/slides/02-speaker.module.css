@@ -1,0 +1,57 @@
+.speakerGrid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 22px;
+  margin-top: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .speakerGrid { grid-template-columns: 1fr; gap: 14px; margin-top: 14px; }
+  .speakerName { font-size: 36px !important; }
+  .speakerRole { font-size: 16px !important; margin-top: 6px !important; }
+}
+
+.speakerName {
+  font-size: 52px;
+  line-height: 0.98;
+  font-weight: 860;
+  color: #fff;
+}
+
+.speakerRole {
+  margin-top: 12px;
+  color: var(--cyan2);
+  font-size: 22px;
+  font-weight: 760;
+}
+
+.logoStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.miniLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 14px;
+  font-weight: 760;
+  backdrop-filter: blur(10px);
+}
+
+.miniLogo img { width: 26px; height: 26px; object-fit: contain; }
+
+.credentialList {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
