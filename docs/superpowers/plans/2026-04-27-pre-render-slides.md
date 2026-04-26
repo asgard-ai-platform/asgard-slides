@@ -67,7 +67,7 @@ packages:
   "type": "module",
   "main": "./src/build-site.ts",
   "scripts": {
-    "build": "tsx src/build-site.ts",
+    "start": "tsx src/build-site.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -1146,7 +1146,7 @@ Edit `package.json` (root) — add to `scripts`:
 {
   "scripts": {
     "build": "pnpm -r run build",
-    "build:site": "pnpm -F site-builder run build",
+    "build:site": "pnpm -F site-builder run start",
     "lint": "pnpm -r run lint",
     "test": "pnpm -r run test",
     "typecheck": "pnpm -r run typecheck"
