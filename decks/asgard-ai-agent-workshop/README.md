@@ -1,6 +1,6 @@
 # asgard-ai-agent-workshop
 
-A 60-minute Traditional-Chinese technical talk — **"Sandboxed Agent 實戰"** —
+A 60-minute Traditional-Chinese technical talk — **"從 Chat 到 Agent · 六層架構實戰"** —
 delivered as a Vite + React deck on top of [`deck-kit`](../../packages/deck-kit).
 
 Topics: the six-layer agent stack (Model · Tools · Harness · Sandbox · Session ·

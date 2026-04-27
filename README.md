@@ -12,7 +12,7 @@ asgard-slides/
 ├── packages/
 │   └── deck-kit/                  # Shared React kit (primitives, layouts, shell, theme)
 └── decks/
-    └── asgard-ai-agent-workshop/  # First deck — "Sandboxed Agent 實戰" (60-min talk)
+    └── asgard-ai-agent-workshop/  # First deck — "從 Chat 到 Agent · 六層架構實戰" (60-min talk)
 ```
 
 - `packages/*` — reusable libraries.

@@ -2,7 +2,7 @@
   "name": "asgard-ai-agent-workshop",
   "private": true,
   "version": "0.0.0",
-  "description": "Sandboxed Agent 實戰 — 60-min deck for the Asgard AI agent workshop.",
+  "description": "從 Chat 到 Agent · 六層架構實戰",
   "type": "module",
   "scripts": {
     "dev": "vite",
