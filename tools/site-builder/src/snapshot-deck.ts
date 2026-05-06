@@ -82,6 +82,7 @@ async function startVitePreview(
       cwd: deckDir,
       env: { ...process.env, DECK_BASE: base },
       stdio: ["ignore", "pipe", "pipe"],
+      detached: true,
     },
   );
   // Wait for server to be reachable.
@@ -94,14 +95,28 @@ async function startVitePreview(
       // not yet
     }
   }
-  proc.kill("SIGTERM");
+  await stopVitePreview(proc);
   throw new Error(`vite preview did not become reachable on port ${PREVIEW_PORT}`);
 }
 
 async function stopVitePreview(proc: ChildProcess): Promise<void> {
-  proc.kill("SIGTERM");
+  if (proc.exitCode !== null || proc.pid == null) return;
+  const pid = proc.pid;
+  try {
+    process.kill(-pid, "SIGTERM");
+  } catch {
+    // process group may already be gone
+  }
+  const killTimer = setTimeout(() => {
+    try {
+      process.kill(-pid, "SIGKILL");
+    } catch {
+      // already exited
+    }
+  }, 3000);
   await new Promise<void>((resolve) => {
     if (proc.exitCode !== null) resolve();
     else proc.once("exit", () => resolve());
   });
+  clearTimeout(killTimer);
 }
