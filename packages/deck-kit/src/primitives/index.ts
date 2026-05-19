@@ -9,3 +9,4 @@ export { Node } from "./Node";
 export { ProductCard } from "./ProductCard";
 export { Credential } from "./Credential";
 export { DemoShot } from "./DemoShot";
+export { Stat } from "./Stat";

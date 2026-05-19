@@ -11,7 +11,7 @@ export { discoverSlides, assertSequentialPrefixes } from "./discoverSlides";
 export type { SlideMeta, SlideTheme, SlideModule, SlideEntry, Chapter } from "./types";
 
 export {
-  SlideShell, Kicker, Card, Quote, Tag, CodeBlock, Talkbox, Node, ProductCard, Credential, DemoShot,
+  SlideShell, Kicker, Card, Quote, Tag, CodeBlock, Talkbox, Node, ProductCard, Credential, DemoShot, Stat,
 } from "./primitives";
 export { DeckProvider } from "./shell/DeckProvider";
 export { useDeck } from "./hooks/useDeck";
