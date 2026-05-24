@@ -7,10 +7,9 @@
 .step {
   min-height: 88px;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 0 26px rgba(6, 182, 212, 0.05);
+  background: var(--panel2);
 }
 
 .step b { display: block; color: var(--amber); font: 850 19px var(--font-mono); }
