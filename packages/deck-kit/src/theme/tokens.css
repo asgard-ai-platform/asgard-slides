@@ -1,49 +1,72 @@
 :root {
-  /* color — base */
-  --bg: #050812;
-  --bg2: #0a0e1a;
-  --ink: #ffffff;
-  --muted: #9ca3af;
-  --line: rgba(255, 255, 255, 0.10);
+  /* color — base (warm charcoal, no cool tones) */
+  --bg: #141413;
+  --bg2: #1a1a17;
+  --ink: #f5f4ed;
+  --muted: #b8b5ab;
+  --line: rgba(245, 244, 237, 0.10);
 
   /* color — surfaces */
-  --card: #0a0f1e;
-  --panel: rgba(255, 255, 255, 0.025);
-  --panel2: rgba(255, 255, 255, 0.045);
+  --card: #1f1f1d;
+  --panel: rgba(245, 244, 237, 0.035);
+  --panel2: rgba(245, 244, 237, 0.06);
 
-  /* color — accents */
-  --green: #10B981;
-  --cyan: #06b6d4;
-  --cyan2: #22d3ee;
-  --blue: #3B82F6;
-  --purple: #A855F7;
-  --amber: #F59E0B;
-  --rose: #EF4444;
-  --pink: #EC4899;
+  /* color — accents: single ink-blue identity + de-saturated functional */
+  --green: #6f9c6e;   /* muted sage (good) */
+  --cyan: #2D5A8A;    /* folded into ink-blue */
+  --cyan2: #9ec1e6;   /* bright blue for dark surfaces (links / emphasis) */
+  --blue: #2D5A8A;    /* ink-blue */
+  --purple: #8c84a8;  /* muted violet */
+  --amber: #c9a24b;   /* muted ochre (warn) */
+  --rose: #c47a72;    /* muted terracotta (bad) */
+  --pink: #b08aa0;    /* muted mauve */
 
-  /* color — paper variant base */
-  --paper: #07111f;
-  --paper-ink: #ffffff;
+  /* color — paper variant base (kami parchment) */
+  --paper: #f5f4ed;
+  --paper-ink: #141413;
 
-  /* effects */
-  --shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+  /* effects — kami whisper shadow, no hard drop / no glow */
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
 
-  /* type */
+  /* type — keep Space Grotesk */
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system,
                BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC",
                "Microsoft JhengHei", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
                "Liberation Mono", monospace;
+
+  /* canonical kami names for P2+ components / diagrams */
+  --brand: #2D5A8A;
+  --brand-bright: #7ba3cf;
+  --brand-on-dark: #9ec1e6;
+  --brand-tint: rgba(45, 90, 138, 0.18);
+  --good: var(--green);
+  --warn: var(--amber);
+  --bad: var(--rose);
 }
 
 [data-variant="light"] {
-  --bg: #ffffff;
-  --ink: #050812;
-  --muted: #525252;
-  --line: rgba(0, 0, 0, 0.10);
+  --bg: #f5f4ed;
+  --bg2: #faf9f5;
+  --ink: #141413;
+  --muted: #504e49;
+  --line: #e8e6dc;
+  --card: #faf9f5;
+  --panel: rgba(20, 20, 19, 0.03);
+  --panel2: rgba(20, 20, 19, 0.05);
+  --cyan2: #1B365D;
+  --brand-on-dark: #1B365D;
 }
 
 [data-variant="paper"] {
   --bg: var(--paper);
+  --bg2: #faf9f5;
   --ink: var(--paper-ink);
+  --muted: #504e49;
+  --line: #e8e6dc;
+  --card: #faf9f5;
+  --panel: rgba(20, 20, 19, 0.03);
+  --panel2: rgba(20, 20, 19, 0.05);
+  --cyan2: #1B365D;
+  --brand-on-dark: #1B365D;
 }

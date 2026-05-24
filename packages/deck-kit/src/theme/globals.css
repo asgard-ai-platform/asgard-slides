@@ -25,10 +25,9 @@ html, body {
 
 body {
   background:
-    radial-gradient(circle at -8% -8%, rgba(59,130,246,.16), transparent 30%),
-    radial-gradient(circle at 100% 0%,  rgba(34,211,238,.12), transparent 28%),
-    radial-gradient(circle at 6% 100%,  rgba(168,85,247,.12), transparent 32%),
-    linear-gradient(135deg, #050812 0%, #0a0e1a 54%, #050812 100%);
+    radial-gradient(circle at 12% -10%, rgba(45,90,138,.10), transparent 36%),
+    radial-gradient(circle at 100% 4%,  rgba(45,90,138,.06), transparent 30%),
+    linear-gradient(140deg, #141413 0%, #1a1a17 56%, #141413 100%);
 }
 
 h1, h2, h3, p { margin: 0; }
@@ -54,13 +53,7 @@ h2 {
 
 h3 { font-size: 21px; line-height: 1.16; font-weight: 780; }
 
-h1, h2 {
-  background: linear-gradient(90deg, #fff 0%, #dbeafe 58%, #67e8f9 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 0 26px rgba(34, 211, 238, .12));
-}
+h1, h2 { color: var(--ink); }
 
 a { color: var(--cyan2); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -72,5 +65,5 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 @media print {
-  body { overflow: visible; background: white; }
+  body { overflow: visible; background: var(--bg); }
 }
