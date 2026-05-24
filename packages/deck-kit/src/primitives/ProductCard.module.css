@@ -22,8 +22,7 @@
   flex: 0 0 auto;
   border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 18%, transparent);
+  background: var(--panel2);
 }
 
 .productIcon img { width: 36px; height: 36px; object-fit: contain; }
