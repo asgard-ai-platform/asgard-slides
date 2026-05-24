@@ -121,10 +121,13 @@
 [data-variant="paper"] {
   /* parchment page using the same kami light surfaces */
   --bg: var(--paper);        /* #f5f4ed */
+  --bg2: #faf9f5;
   --ink: var(--paper-ink);   /* #141413 */
   --muted: #504e49;
   --line: #e8e6dc;
   --card: #faf9f5;
+  --panel: rgba(20, 20, 19, 0.03);
+  --panel2: rgba(20, 20, 19, 0.05);
   --cyan2: #1B365D;
   --brand-on-dark: #1B365D;
 }
