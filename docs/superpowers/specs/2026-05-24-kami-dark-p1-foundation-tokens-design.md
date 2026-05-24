@@ -1,7 +1,7 @@
 # kami × Asgard 暗色重設計 — P1：地基 Token
 
 - **Date:** 2026-05-24
-- **Status:** Approved (design), pending implementation plan
+- **Status:** P1 implemented & merged to `main` (2026-05-24)
 - **Scope of this spec:** Phase 1 only — `deck-kit` 的 `tokens.css` + `globals.css`
 
 ---
@@ -14,11 +14,13 @@
 
 | 階段 | 內容 | 狀態 |
 |---|---|---|
-| **P1 · 地基 token** | 重寫 `tokens.css` + `globals.css` 成 kami 暗色 | ← 本 spec |
+| **P1 · 地基 token** | 重寫 `tokens.css` + `globals.css` 成 kami 暗色 | ✅ 完成（已併入 main） |
 | P2 · deck-kit 元件 | 重做 Card / Tag / Kicker；補上 kami 缺的 SectionHeader、Metric、GlanceGrid、CodeCard、Quote、Callout 等並從 barrel 匯出 | 待 P1 後 |
 | P3 · 圖表 primitive | 移植 kami diagram（layer-stack、flowchart、timeline、architecture、state-machine、quadrant、bar/line/donut…）成 deck-kit React/SVG 元件 | 待 P2 後 |
 | P4 · slide 收斂 | 掃過 17 個 `*.module.css` + 13 張寫死 cyan/發光/玻璃卡的 slide，改吃 token 與新 primitive | 待 P2/P3 後 |
-| P5 · 站台 + shell | site-builder landing page、OverviewMode / 導覽 / 進度條 套 kami 暗色 | 最後 |
+| P5 · shell UI | OverviewMode / 導覽 / 進度條 套 kami 暗色 | 最後 |
+
+> **範圍變更（2026-05-24）**：已 publish 的 GitHub Pages **landing / marketing 頁維持原樣不改**，從 P5 移除。deck 本身會隨每次 push 到 `main` 增量重新部署（可接受中間狀態）。
 
 ### Locked decisions（brainstorm 共識，後續階段沿用）
 
