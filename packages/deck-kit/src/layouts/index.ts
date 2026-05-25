@@ -21,3 +21,7 @@ export { LayerStack } from "./LayerStack";
 export type { StackLayer } from "./LayerStack";
 export { Timeline } from "./Timeline";
 export type { Milestone } from "./Timeline";
+export { StateMachine } from "./StateMachine";
+export type { StateNode } from "./StateMachine";
+export { Tree } from "./Tree";
+export type { TreeNode } from "./Tree";
