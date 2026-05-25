@@ -13,3 +13,4 @@ export { FlowDiagram } from "./FlowDiagram";
 export type { FlowDiagramNode } from "./FlowDiagram";
 export { GlanceGrid } from "./GlanceGrid";
 export type { GlanceCell } from "./GlanceGrid";
+export { Table } from "./Table";

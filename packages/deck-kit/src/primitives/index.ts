@@ -16,3 +16,4 @@ export { ModuleBlock } from "./ModuleBlock";
 export { ModuleNote } from "./ModuleNote";
 export { PricingCard } from "./PricingCard";
 export { ValueAnchors } from "./ValueAnchors";
+export { CodeCard } from "./CodeCard";

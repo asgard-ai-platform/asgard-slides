@@ -1,0 +1,28 @@
+.table { width: 100%; border-collapse: collapse; font-size: 16px; margin-top: 20px; }
+.table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--ink);
+}
+.compact { font-size: 14px; }
+.compact th, .compact td { padding: 6px 8px; }
+.financial th:not(:first-child),
+.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.striped tbody tr:nth-child(even) td { background: var(--panel); }
+.table :global(tr[data-total]) td {
+  font-weight: 760;
+  color: var(--ink);
+  border-top: 1px solid var(--brand);
+}
+.table :global(tr[data-highlight]) td {
+  background: var(--panel2);
+  color: var(--brand-on-dark);
+}
