@@ -16,11 +16,13 @@
 
 把 deck 的 slide `*.module.css` 從寫死的「深色霓虹/玻璃」收成 kami 暗色。**做法與 P2a 完全相同**：套用同一套 de-neon 對應規則，保留所有結構/尺寸/排版，只換顏色與效果。**de-neon in place，不重構成 primitive。**
 
-### 範圍（12 檔，~97 hits）
+### 範圍（16 檔）
 
-`01-opening` `02-speaker` `07-six-layer-stack` `100-resources` `12-harness-diagram` `14-term-diagram` `15-system-architecture` `16-from-architecture-to-components` `51-identity-chain` `57-plugin-to-harness-diagram` `86-asgard-product-stack` `99-thanks-qa`（皆 `.module.css`）。
+**含寫死霓虹的 12 檔（~97 hits）：** `01-opening` `02-speaker` `07-six-layer-stack` `100-resources` `12-harness-diagram` `14-term-diagram` `15-system-architecture` `16-from-architecture-to-components` `51-identity-chain` `57-plugin-to-harness-diagram` `86-asgard-product-stack` `99-thanks-qa`。
 
-其餘 5 個 slide module.css 已無 neon，不動。不改任何 `.tsx`（除非某 tsx 有 inline 寫死色——本盤點顯示沒有）。
+**僅含冷白疊層、無強烈霓虹的 4 檔（實作中由驗收 grep 抓出補上）：** `85-asgard-ecosystem` `101-qr-codes` `87-six-layers-to-asgard` `18-mcp-packaging`。這 4 檔最初的 neon-only 盤點漏掉，但 spec 驗收 grep 含 `rgba(255,255,255)`，故一併把冷白疊層改暖白。`101-qr-codes` 的 QR 卡底 `#fff` 改 `var(--ink)`（暖白，仍可掃描）。
+
+（皆 `.module.css`。)其餘 1 個 slide module.css 已全乾淨，不動。不改任何 `.tsx`（本盤點顯示無 inline 寫死色）。
 
 ## De-neon 對應規則（與 P2a 同）
 
