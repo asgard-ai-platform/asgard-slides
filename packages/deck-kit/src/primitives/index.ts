@@ -12,3 +12,5 @@ export { DemoShot } from "./DemoShot";
 export { Metric } from "./Metric";
 export { Button } from "./Button";
 export { DashList } from "./DashList";
+export { ModuleBlock } from "./ModuleBlock";
+export { ModuleNote } from "./ModuleNote";
