@@ -25,3 +25,5 @@ export { StateMachine } from "./StateMachine";
 export type { StateNode } from "./StateMachine";
 export { Tree } from "./Tree";
 export type { TreeNode } from "./Tree";
+export { Swimlane } from "./Swimlane";
+export type { SwimLane } from "./Swimlane";

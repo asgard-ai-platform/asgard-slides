@@ -1,0 +1,34 @@
+.swimlane { display: grid; gap: 6px; margin-top: 20px; }
+.corner { }
+.colHead {
+  color: var(--brand-on-dark);
+  font: 700 12px var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 4px;
+}
+.actor {
+  display: flex;
+  align-items: center;
+  color: var(--brand-on-dark);
+  font: 700 13px var(--font-mono);
+  padding-right: 8px;
+}
+.cell {
+  min-height: 48px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .swimlane { display: block; }
+  .colHead, .corner { display: none; }
+  .actor { margin-top: 12px; padding: 0 0 4px; }
+  .cell { margin: 4px 0; }
+}
