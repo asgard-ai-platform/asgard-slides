@@ -11,3 +11,5 @@ export { SectionTitle } from "./SectionTitle";
 export { TwoColumn } from "./TwoColumn";
 export { FlowDiagram } from "./FlowDiagram";
 export type { FlowDiagramNode } from "./FlowDiagram";
+export { GlanceGrid } from "./GlanceGrid";
+export type { GlanceCell } from "./GlanceGrid";
