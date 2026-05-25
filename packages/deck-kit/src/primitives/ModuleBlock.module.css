@@ -1,0 +1,19 @@
+.module { margin-top: 18px; }
+.head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.letter { font-size: 30px; font-weight: 820; color: var(--brand-on-dark); line-height: 1; }
+.title { font-size: 18px; font-weight: 760; color: var(--ink); line-height: 1.15; }
+.sub {
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-on-dark);
+}
+.body { margin-top: 10px; color: var(--muted); font-size: 16px; line-height: 1.4; }

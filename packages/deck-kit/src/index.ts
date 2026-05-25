@@ -12,6 +12,7 @@ export type { SlideMeta, SlideTheme, SlideModule, SlideEntry, Chapter } from "./
 
 export {
   SlideShell, Kicker, Card, Quote, Tag, CodeBlock, Talkbox, Node, ProductCard, Credential, DemoShot,
+  Metric, Button, DashList, ModuleBlock, ModuleNote, PricingCard, ValueAnchors, CodeCard,
 } from "./primitives";
 export { DeckProvider } from "./shell/DeckProvider";
 export { useDeck } from "./hooks/useDeck";
@@ -19,5 +20,6 @@ export { useKeyboardNav } from "./hooks/useKeyboardNav";
 export { Deck } from "./shell/Deck";
 export {
   Matrix, CardGrid, Steps, Diagram, TermRow, SectionTitle, TwoColumn, FlowDiagram,
+  GlanceGrid, Table, SectionHeader, Funnel,
 } from "./layouts";
-export type { Step, Term, FlowDiagramNode } from "./layouts";
+export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow } from "./layouts";

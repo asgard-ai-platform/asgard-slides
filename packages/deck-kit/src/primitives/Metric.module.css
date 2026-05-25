@@ -1,0 +1,9 @@
+.metric { display: inline-flex; align-items: baseline; gap: 8px; }
+.value {
+  font-size: 32px;
+  font-weight: 820;
+  color: var(--brand-on-dark);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+}
+.label { font-size: 14px; color: var(--muted); }

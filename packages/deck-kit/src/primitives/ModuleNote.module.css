@@ -1,0 +1,10 @@
+.note { margin-top: 14px; padding: 12px 15px; background: var(--panel); border-radius: 8px; }
+.label {
+  margin-bottom: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-on-dark);
+}
+.body { color: var(--muted); font-size: 15px; line-height: 1.4; }
