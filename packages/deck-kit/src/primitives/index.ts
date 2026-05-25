@@ -10,3 +10,5 @@ export { ProductCard } from "./ProductCard";
 export { Credential } from "./Credential";
 export { DemoShot } from "./DemoShot";
 export { Metric } from "./Metric";
+export { Button } from "./Button";
+export { DashList } from "./DashList";

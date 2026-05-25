@@ -1,0 +1,15 @@
+.list { list-style: none; padding: 0; margin: 16px 0 0; }
+.list li {
+  position: relative;
+  padding-left: 18px;
+  margin: 7px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.list li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--brand-on-dark);
+}
