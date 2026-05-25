@@ -17,3 +17,7 @@ export { Table } from "./Table";
 export { SectionHeader } from "./SectionHeader";
 export { Funnel } from "./Funnel";
 export type { FunnelRow } from "./Funnel";
+export { LayerStack } from "./LayerStack";
+export type { StackLayer } from "./LayerStack";
+export { Timeline } from "./Timeline";
+export type { Milestone } from "./Timeline";
