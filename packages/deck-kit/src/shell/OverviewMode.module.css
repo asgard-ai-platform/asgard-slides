@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(5, 8, 18, 0.96);
+  background: rgba(20, 20, 19, 0.97);
   overflow-y: auto;
   padding: 24px 24px 80px;
 }
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--ink);
 }
 
 .title {
@@ -22,13 +22,13 @@
 
 .hint {
   font: 13px var(--font-mono);
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--muted);
 }
 
 .closeBtn {
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--panel2);
   color: var(--ink);
   font: 700 14px var(--font-mono);
   padding: 6px 12px;
@@ -38,15 +38,14 @@
 .chapter {
   margin-bottom: 28px;
   padding: 14px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.015);
+  background: var(--panel);
 }
 
 .chapterActive {
-  border-color: rgba(34, 211, 238, 0.30);
-  background: rgba(6, 182, 212, 0.04);
-  box-shadow: 0 0 28px rgba(6, 182, 212, 0.05);
+  border-color: rgba(45, 90, 138, 0.4);
+  background: rgba(45, 90, 138, 0.06);
 }
 
 .chapterHeader {
@@ -56,7 +55,7 @@
   gap: 12px;
   margin-bottom: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--line);
 }
 
 .chapterNum {
@@ -67,7 +66,7 @@
 }
 
 .chapterTitle {
-  color: #fff;
+  color: var(--ink);
   font-size: 20px;
   font-weight: 800;
   line-height: 1.2;
@@ -75,7 +74,7 @@
 
 .chapterSubtitle {
   flex: 1 1 auto;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(245, 244, 237, 0.62);
   font-size: 14px;
   line-height: 1.36;
 }
@@ -101,9 +100,9 @@
   display: block;
   text-align: left;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--line);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.025);
+  background: var(--panel);
   cursor: pointer;
   overflow: hidden;
   transition: border-color 120ms ease, transform 120ms ease;
@@ -115,12 +114,13 @@
 .thumb:hover { border-color: var(--cyan); transform: translateY(-2px); }
 
 .thumb.active {
-  border-color: var(--green);
-  box-shadow: 0 0 22px rgba(16, 185, 129, 0.25);
+  border-color: var(--cyan2);
+  box-shadow: 0 0 0 1px var(--cyan2);
 }
 
 /* Top accent bar coloured by the slide's theme — gives a quick visual
-   sense of which "kind" of slide it is without rendering content. */
+   sense of which "kind" of slide it is without rendering content.
+   Tokens are the muted kami functional palette. */
 .thumbAccent {
   height: 4px;
   background: var(--cyan);
@@ -135,7 +135,7 @@
 }
 
 .thumbNo {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(245, 244, 237, 0.45);
   font: 800 12px var(--font-mono);
   letter-spacing: 0.06em;
 }
@@ -152,7 +152,7 @@
 }
 
 .thumbTitle {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(245, 244, 237, 0.92);
   font-size: 14px;
   line-height: 1.32;
   font-weight: 700;
