@@ -7,7 +7,7 @@
 
 .stat {
   padding: 7px 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(245, 244, 237, 0.12);
   text-align: center;
 }
 
@@ -30,7 +30,7 @@
 
 @media (max-width: 900px) {
   .statRow { grid-template-columns: 1fr; gap: 6px; }
-  .stat { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 8px; }
+  .stat { border-left: 0; border-top: 1px solid rgba(245, 244, 237, 0.12); padding: 8px; }
   .stat:first-child { border-top: 0; }
   .stat b { font-size: 22px; }
 }

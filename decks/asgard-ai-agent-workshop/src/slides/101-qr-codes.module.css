@@ -10,9 +10,9 @@
   grid-template-rows: auto auto auto;
   gap: 8px;
   padding: 16px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(245, 244, 237, 0.10);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(245, 244, 237, 0.04);
   text-align: center;
 }
 
@@ -21,7 +21,7 @@
   place-items: center;
   padding: 10px;
   border-radius: 10px;
-  background: #fff;
+  background: var(--ink);
 }
 
 .qrFrame > svg {
@@ -39,7 +39,7 @@
 }
 
 .qrUrl {
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(245, 244, 237, 0.84);
   font: 600 12px var(--font-mono);
   word-break: break-all;
   line-height: 1.32;
