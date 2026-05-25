@@ -1,5 +1,4 @@
 .swimlane { display: grid; gap: 6px; margin-top: 20px; }
-.corner { }
 .colHead {
   color: var(--brand-on-dark);
   font: 700 12px var(--font-mono);

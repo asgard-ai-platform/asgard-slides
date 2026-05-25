@@ -20,3 +20,8 @@
   color: var(--ink);
   font-size: 15px;
 }
+
+@media (max-width: 900px) {
+  .children { margin-left: 14px; padding-left: 12px; }
+  .label { font-size: 14px; }
+}

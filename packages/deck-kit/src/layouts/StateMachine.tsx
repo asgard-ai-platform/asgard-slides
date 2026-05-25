@@ -8,7 +8,7 @@ export interface StateNode {
 
 interface StateMachineProps {
   states: StateNode[];
-  loop?: boolean;
+  loop?: boolean | ReactNode;
 }
 
 export function StateMachine({ states, loop }: StateMachineProps) {
@@ -25,7 +25,7 @@ export function StateMachine({ states, loop }: StateMachineProps) {
           )}
         </Fragment>
       ))}
-      {loop && <div className={styles.loop}>↺ back to start</div>}
+      {loop && <div className={styles.loop}>↺ {loop === true ? "back to start" : loop}</div>}
     </div>
   );
 }
