@@ -42,7 +42,7 @@
   bottom: 0;
   height: 4px;
   width: 0;
-  background: linear-gradient(90deg, var(--cyan), var(--cyan2));
+  background: linear-gradient(90deg, var(--cyan2), var(--cyan));
   z-index: 60;
   transition: width 220ms ease;
 }
