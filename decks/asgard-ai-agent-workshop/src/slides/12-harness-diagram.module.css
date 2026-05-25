@@ -11,7 +11,7 @@
   right: 240px;
   top: 62px;
   bottom: 34px;
-  border: 2px dashed rgba(255, 200, 87, 0.48);
+  border: 2px dashed rgba(201, 162, 75, 0.48);
   border-radius: 50%;
 }
 
@@ -27,8 +27,7 @@
   padding: 16px;
   border: 2px solid var(--green);
   border-radius: 16px;
-  background: rgba(16, 185, 129, 0.10);
-  box-shadow: 0 0 40px rgba(16, 185, 129, 0.14);
+  background: rgba(111, 156, 110, 0.10);
   font-size: 22px;
   font-weight: 840;
   text-align: center;
@@ -47,8 +46,7 @@
   padding: 12px;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.065);
-  box-shadow: 0 0 28px rgba(6, 182, 212, 0.06);
+  background: var(--panel);
 }
 
 .loopstep b { display: block; color: var(--amber); font-size: 18px; }

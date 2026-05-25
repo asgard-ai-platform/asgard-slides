@@ -9,9 +9,9 @@
 .stackCard {
   min-height: 132px;
   padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(245, 244, 237, 0.10);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.045);
+  background: rgba(245, 244, 237, 0.045);
 }
 
 .stackCard b { display: block; color: var(--cyan2); font-size: 19px; }

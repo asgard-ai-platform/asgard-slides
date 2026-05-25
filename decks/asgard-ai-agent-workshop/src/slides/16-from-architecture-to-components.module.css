@@ -16,13 +16,12 @@
   padding: 22px;
   border: 2px solid var(--green);
   border-radius: 18px;
-  background: rgba(16, 185, 129, 0.10);
-  box-shadow: 0 0 38px rgba(16, 185, 129, 0.14);
+  background: rgba(111, 156, 110, 0.10);
 }
 
 .centerName {
   display: block;
-  color: #fff;
+  color: var(--ink);
   font-size: 30px;
   font-weight: 860;
   line-height: 1.05;
@@ -51,19 +50,18 @@
 .branch {
   position: relative;
   padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(245, 244, 237, 0.12);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.045);
-  box-shadow: 0 0 22px rgba(6, 182, 212, 0.05);
+  background: var(--panel);
 }
 
 .branchTag {
   display: inline-block;
   padding: 2px 7px;
   margin-bottom: 6px;
-  border: 1px solid rgba(6, 182, 212, 0.30);
+  border: 1px solid rgba(45, 90, 138, 0.30);
   border-radius: 6px;
-  background: rgba(6, 182, 212, 0.10);
+  background: rgba(45, 90, 138, 0.10);
   color: var(--cyan2);
   font: 700 11px var(--font-mono);
   letter-spacing: 0.06em;
@@ -72,7 +70,7 @@
 
 .branchName {
   display: block;
-  color: #fff;
+  color: var(--ink);
   font-size: 17px;
   font-weight: 800;
   line-height: 1.18;
@@ -105,7 +103,7 @@
   top: 14%;
   bottom: 14%;
   width: 1.5px;
-  background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.45), transparent);
+  background: linear-gradient(180deg, transparent, rgba(45, 90, 138, 0.45), transparent);
 }
 
 @media (max-width: 900px) {
