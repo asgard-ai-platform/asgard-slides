@@ -11,13 +11,13 @@
   gap: 12px;
   align-items: stretch;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.045);
+  background: var(--panel);
 }
 
 .termRow b { display: flex; align-items: center; color: var(--cyan2); font-size: 20px; }
-.termRow p { color: rgba(255, 255, 255, 0.85); font-size: 15px; line-height: 1.28; }
+.termRow p { color: var(--ink); font-size: 15px; line-height: 1.28; }
 .termRow small { display: block; color: var(--muted); font-size: 13px; line-height: 1.26; }
 
 @media (max-width: 900px) {
