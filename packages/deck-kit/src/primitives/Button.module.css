@@ -11,6 +11,6 @@
   transition: background 0.15s, border-color 0.15s;
 }
 .primary { background: var(--brand); color: var(--ink); }
-.primary:hover { background: var(--brand-bright); }
+.primary:hover { filter: brightness(1.12); }
 .secondary { background: var(--panel2); color: var(--ink); border-color: var(--line); }
 .secondary:hover { border-color: var(--brand); }

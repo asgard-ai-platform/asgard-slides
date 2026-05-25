@@ -11,7 +11,7 @@ export function SectionHeader({ eyebrow, title }: SectionHeaderProps) {
     <div className={styles.header}>
       <div className={styles.eyebrow}>{eyebrow}</div>
       <div className={styles.rule} />
-      <div className={styles.title}>{title}</div>
+      <h2 className={styles.title}>{title}</h2>
     </div>
   );
 }
