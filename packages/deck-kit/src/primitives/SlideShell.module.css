@@ -16,15 +16,6 @@
 
 .slide > * { position: relative; z-index: 1; }
 
-.slide[data-variant="light"],
-.slide[data-variant="paper"] {
-  background:
-    radial-gradient(circle at 15% 8%, rgba(45, 90, 138, .10), transparent 30%),
-    linear-gradient(135deg, var(--bg2), var(--bg));
-  color: var(--ink);
-  border-color: var(--line);
-}
-
 .slideNo {
   position: absolute;
   right: 34px;

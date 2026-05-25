@@ -45,28 +45,7 @@
   --bad: var(--rose);
 }
 
-[data-variant="light"] {
-  --bg: #f5f4ed;
-  --bg2: #faf9f5;
-  --ink: #141413;
-  --muted: #504e49;
-  --line: #e8e6dc;
-  --card: #faf9f5;
-  --panel: rgba(20, 20, 19, 0.03);
-  --panel2: rgba(20, 20, 19, 0.05);
-  --cyan2: #1B365D;
-  --brand-on-dark: #1B365D;
-}
-
-[data-variant="paper"] {
-  --bg: var(--paper);
-  --bg2: #faf9f5;
-  --ink: var(--paper-ink);
-  --muted: #504e49;
-  --line: #e8e6dc;
-  --card: #faf9f5;
-  --panel: rgba(20, 20, 19, 0.03);
-  --panel2: rgba(20, 20, 19, 0.05);
-  --cyan2: #1B365D;
-  --brand-on-dark: #1B365D;
-}
+/* Per-slide themes "light" and "paper" (set via slide meta.theme) render as
+   kami-dark, identical to the dark :root above. This deck is dark-only; these
+   theme values are accent hooks, not a parchment light mode. A true light mode,
+   if ever needed, should be a deck-level toggle, not a per-slide theme. */

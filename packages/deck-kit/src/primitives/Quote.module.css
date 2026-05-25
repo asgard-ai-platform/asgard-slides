@@ -11,8 +11,3 @@
 }
 
 .compact { margin-top: 14px; padding: 13px 18px; font-size: 23px; line-height: 1.18; }
-
-[data-variant="light"] .quote, [data-variant="paper"] .quote {
-  background: var(--panel);
-  color: var(--ink);
-}

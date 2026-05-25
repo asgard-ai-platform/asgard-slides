@@ -19,13 +19,6 @@
   opacity: 0.5;
 }
 
-.strong { background: var(--panel2); border-color: rgba(45, 90, 138, 0.35); }
+.strong { background: var(--panel2); border-color: color-mix(in srgb, var(--brand) 35%, transparent); }
 .card > * { position: relative; z-index: 1; }
 .card p { margin-top: 9px; color: var(--muted); font-size: 16px; line-height: 1.34; }
-
-[data-variant="light"] .card,
-[data-variant="paper"] .card {
-  border-color: var(--line);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-}
