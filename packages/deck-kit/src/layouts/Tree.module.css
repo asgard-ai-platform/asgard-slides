@@ -1,0 +1,27 @@
+.tree, .children { list-style: none; margin: 0; padding: 0; }
+.tree { margin-top: 20px; }
+.children { margin-left: 22px; border-left: 1px solid var(--line); padding-left: 16px; margin-top: 8px; }
+.node { position: relative; margin: 8px 0; }
+.children > .node::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -16px;
+  width: 12px;
+  height: 1px;
+  background: var(--line);
+}
+.label {
+  display: inline-block;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .children { margin-left: 14px; padding-left: 12px; }
+  .label { font-size: 14px; }
+}
