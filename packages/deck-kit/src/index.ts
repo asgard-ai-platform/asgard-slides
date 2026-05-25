@@ -12,7 +12,7 @@ export type { SlideMeta, SlideTheme, SlideModule, SlideEntry, Chapter } from "./
 
 export {
   SlideShell, Kicker, Card, Quote, Tag, CodeBlock, Talkbox, Node, ProductCard, Credential, DemoShot,
-  Metric, Button, DashList, ModuleBlock, ModuleNote,
+  Metric, Button, DashList, ModuleBlock, ModuleNote, PricingCard, ValueAnchors,
 } from "./primitives";
 export { DeckProvider } from "./shell/DeckProvider";
 export { useDeck } from "./hooks/useDeck";

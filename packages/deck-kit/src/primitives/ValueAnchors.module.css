@@ -1,0 +1,20 @@
+.list { list-style: none; padding: 0; margin: 16px 0; }
+.list li {
+  position: relative;
+  padding: 9px 0 9px 18px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.45;
+  font-size: 16px;
+}
+.list li:last-child { border-bottom: none; }
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 8px;
+  height: 1.5px;
+  background: var(--brand);
+}
+.title { color: var(--brand-on-dark); font-weight: 760; margin-right: 8px; }
+.desc { color: var(--muted); }

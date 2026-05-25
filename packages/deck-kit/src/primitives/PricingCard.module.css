@@ -1,0 +1,21 @@
+.card { margin-top: 16px; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.price { display: flex; align-items: baseline; gap: 6px; }
+.currency { font-size: 24px; font-weight: 760; color: var(--brand-on-dark); }
+.amount {
+  font-size: 44px;
+  font-weight: 820;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+.unit { font-size: 16px; color: var(--muted); }
+.note { margin-top: 8px; font-size: 14px; color: var(--muted); }

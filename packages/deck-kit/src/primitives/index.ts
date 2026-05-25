@@ -14,3 +14,5 @@ export { Button } from "./Button";
 export { DashList } from "./DashList";
 export { ModuleBlock } from "./ModuleBlock";
 export { ModuleNote } from "./ModuleNote";
+export { PricingCard } from "./PricingCard";
+export { ValueAnchors } from "./ValueAnchors";
