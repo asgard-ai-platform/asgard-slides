@@ -34,6 +34,20 @@
 
 ---
 
+## 實作中修正（2026-05-25）：light / paper 主題改為 kami 暗色
+
+**背景**：code review 期間發現，這個 deck 有 31 dark / 34 light / 36 paper 三種 `meta.theme`，共 ~70 張用 light/paper。但**原始設計裡 light/paper 從來不是亮底**——SlideShell 一律畫深色底 + 白字，theme 只決定 radial glow 的顏色（dark=cyan/purple、light=blue、paper=green）。P1 誤把 `[data-variant="light"]/"paper"` 的 token remap 成米紙亮色，導致這 70 張 slide 會變成米紙底但殘留寫死白字（不可見），slideNo 也在米紙上消失。
+
+**修正（忠於原本「全深色」、且符合 kami 單一 accent 的克制）**：light / paper 主題一律 render 成 **kami 暗色**，與 dark 一致。具體：
+
+- `theme/tokens.css`：移除 `[data-variant="light"]` 與 `[data-variant="paper"]` 兩個 parchment 區塊，讓它們繼承暗色 `:root`。（`--paper`/`--paper-ink` token 保留備用；本 deck 為純暗色，這兩個 theme 值只是 accent 鉤子，非亮色模式。）
+- 移除已變冗餘的 `[data-variant="light"]/"paper"` selector：`SlideShell`、`Card`、`Quote` 內各一個（與預設深色完全相同）。
+- `shell/OverviewMode` 的 `[data-variant]` thumb accent 留待 **P5**（不在 P2a 動 shell）。
+
+> 此修正取代 P1 spec 中「light/paper variant → kami 米紙」的敘述。deck 維持全暗色；若未來要真正的米紙亮色模式，應由 deck 層級的開關觸發，而非 per-slide theme。
+
+---
+
 ## De-neon 對應規則（canonical 轉換）
 
 實作時對每個檔套用下表。保留 alpha 值；只換色相。
@@ -84,7 +98,7 @@
 - 不碰 `shell/`（Deck、OverviewMode、SwipeHint、DeckProvider）→ P5。
 - 不碰 slide `*.module.css` 或 slide `.tsx` → P4。
 - 不碰 diagram/圖表 → P3。
-- 不改 `theme/tokens.css` / `globals.css`（P1 已完成）。
+- 不改 `theme/globals.css`（P1 已完成）。`theme/tokens.css` 僅做上方「實作中修正」所述的 light/paper variant 更正，不做其他改動。
 
 ---
 
