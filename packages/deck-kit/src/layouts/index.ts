@@ -14,3 +14,6 @@ export type { FlowDiagramNode } from "./FlowDiagram";
 export { GlanceGrid } from "./GlanceGrid";
 export type { GlanceCell } from "./GlanceGrid";
 export { Table } from "./Table";
+export { SectionHeader } from "./SectionHeader";
+export { Funnel } from "./Funnel";
+export type { FunnelRow } from "./Funnel";

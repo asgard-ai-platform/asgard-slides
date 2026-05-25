@@ -20,6 +20,6 @@ export { useKeyboardNav } from "./hooks/useKeyboardNav";
 export { Deck } from "./shell/Deck";
 export {
   Matrix, CardGrid, Steps, Diagram, TermRow, SectionTitle, TwoColumn, FlowDiagram,
-  GlanceGrid, Table,
+  GlanceGrid, Table, SectionHeader, Funnel,
 } from "./layouts";
-export type { Step, Term, FlowDiagramNode, GlanceCell } from "./layouts";
+export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow } from "./layouts";
