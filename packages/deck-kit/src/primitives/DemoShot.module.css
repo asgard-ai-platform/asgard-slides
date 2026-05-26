@@ -11,6 +11,8 @@
 }
 
 .compact { width: auto; height: 300px; max-width: 100%; max-height: none; margin-left: auto; margin-right: auto; }
+/* Full-width, height-capped — for one screenshot filling its own page. */
+.page { width: 100%; height: auto; max-height: 500px; margin: 14px auto 0; }
 .large   { width: auto; height: 470px; max-width: 100%; max-height: none; margin: 14px auto 0; }
 .medium  { width: auto; height: 420px; max-width: 100%; max-height: none; margin: 14px auto 0; }
 
