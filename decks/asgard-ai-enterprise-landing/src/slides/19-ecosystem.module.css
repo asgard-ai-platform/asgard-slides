@@ -1,0 +1,70 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.logo { width: 100px; height: 100px; }
+
+.wordmark {
+  font-size: 38px;
+  font-weight: 860;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.tagline {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.solutions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.solLogo { width: 52px; height: 52px; margin-bottom: 4px; }
+
+.role {
+  font: 12px var(--font-mono);
+  color: var(--brand-on-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.solName {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.solDesc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .solutions { grid-template-columns: 1fr; gap: 12px; }
+  .logo { width: 76px; height: 76px; }
+  .wordmark { font-size: 26px; }
+  .tagline { font-size: 15px; }
+}
