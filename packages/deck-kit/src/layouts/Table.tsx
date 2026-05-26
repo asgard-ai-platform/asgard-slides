@@ -9,15 +9,18 @@ import styles from "./Table.module.css";
  */
 interface TableProps {
   compact?: boolean;
+  /** Larger type + padding, for slides where the table is the whole focus. */
+  large?: boolean;
   financial?: boolean;
   striped?: boolean;
   children: ReactNode;
 }
 
-export function Table({ compact, financial, striped, children }: TableProps) {
+export function Table({ compact, large, financial, striped, children }: TableProps) {
   const cls = [
     styles.table,
     compact ? styles.compact : "",
+    large ? styles.large : "",
     financial ? styles.financial : "",
     striped ? styles.striped : "",
   ].filter(Boolean).join(" ");

@@ -14,6 +14,9 @@
 }
 .compact { font-size: 14px; }
 .compact th, .compact td { padding: 6px 8px; }
+.large { font-size: 20px; margin-top: 24px; }
+.large th { font-size: 16px; padding: 12px 14px; }
+.large td { padding: 13px 14px; }
 .financial th:not(:first-child),
 .financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
 .striped tbody tr:nth-child(even) td { background: var(--panel); }
