@@ -9,7 +9,7 @@ export const meta: SlideMeta = {
 
 const cases = [
   {
-    name: "Xxentria 雲鼎（8942.TWO）",
+    name: "森鉅（8942.TWO）",
     desc: "生產線設計整合與資料萃取，Semantic 模型 ＋ Data Insight ＋ 智慧製造對話 Agent",
   },
   {

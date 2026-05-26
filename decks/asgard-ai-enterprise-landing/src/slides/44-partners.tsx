@@ -18,7 +18,7 @@ const industries = [
 
 const partners = [
   "MetaAge", "Freedom Systems", "Systex 精誠", "Rytass 八拍子",
-  "Xxentria", "大成長城", "寒舍", "台安", "NEWEB", "Tong Yang", "Boltun", "Tongtai",
+  "森鉅", "大成長城", "寒舍", "台安", "NEWEB", "Tong Yang", "Boltun", "Tongtai",
 ];
 
 export default function Slide() {
