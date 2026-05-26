@@ -1,5 +1,6 @@
 import { Kicker, TwoColumn, Quote } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
+import styles from "./69-back-to-meeting.module.css";
 
 export const meta: SlideMeta = {
   title: "回到那個早會：兩種公司的差距",
@@ -74,9 +75,14 @@ export default function Slide() {
     <>
       <Kicker>收束</Kicker>
       <h2>回到那個早會：星期一，營收亮紅燈</h2>
-      <p>
-        同樣一個紅燈，兩種公司，結果截然不同。
-      </p>
+      <div className={styles.echo}>
+        <span className={styles.dot} />
+        <span className={styles.dot} />
+        <span className={styles.dot} />
+        <span className={styles.echoTitle}>經營總覽 · 週一 09:00</span>
+        <span className={styles.echoFlag}>▼ 營收亮紅燈</span>
+      </div>
+      <p className={styles.lead}>同樣一個紅燈，兩種公司，結果截然不同。</p>
       <TwoColumn left={Left} right={Right} />
       <Quote>
         <p>

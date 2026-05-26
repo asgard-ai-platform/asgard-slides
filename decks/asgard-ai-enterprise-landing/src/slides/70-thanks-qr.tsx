@@ -10,7 +10,7 @@ export const meta: SlideMeta = {
 
 export default function Slide() {
   return (
-    <>
+    <div className={styles.wrap}>
       <div className={styles.thanks}>
         <h1 className={styles.thanksHeading}>謝謝</h1>
         <p className={styles.speaker}>王韋仁 William Wang｜Asgard Inc.</p>
@@ -30,6 +30,6 @@ export default function Slide() {
         <div className={styles.qrUrl}>asgard-ai.com</div>
         <div className={styles.qrCaption}>官網 asgard-ai.com · 歡迎交流</div>
       </div>
-    </>
+    </div>
   );
 }
