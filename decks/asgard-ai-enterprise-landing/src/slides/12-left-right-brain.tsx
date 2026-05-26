@@ -1,4 +1,4 @@
-import { Kicker, DemoShot, Talkbox } from "deck-kit";
+import { Kicker, DemoShot } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
 
 export const meta: SlideMeta = {
@@ -12,10 +12,11 @@ export default function Slide() {
     <>
       <Kicker>架構思維</Kicker>
       <h2>左腦 × 右腦：分開都沒用，串起來才有威力</h2>
-      <DemoShot src="assets/deck/p13_left_right_brain.png" alt="左腦 ML/RPA/System × 右腦 GenAI" size="large" />
-      <Talkbox compact>
-        <p>只有 GenAI 會說不會做；只有 ML/RPA 會算會做不懂人話。接起來，才是完整的 AI 員工。</p>
-      </Talkbox>
+      <DemoShot
+        src="assets/deck/p13_left_right_brain.png"
+        alt="左腦 ML/RPA/System × 右腦 GenAI"
+        caption="只有 GenAI 會說不會做；只有 ML/RPA 會算會做不懂人話——接起來，才是完整的 AI 員工。"
+      />
     </>
   );
 }

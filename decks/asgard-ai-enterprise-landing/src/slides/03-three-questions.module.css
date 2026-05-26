@@ -1,5 +1,5 @@
 .list {
-  min-height: 60vh;
+  min-height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
