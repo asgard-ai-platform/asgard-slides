@@ -15,19 +15,19 @@ export default function Slide() {
       <h2>工單、派工、回覆、報表——一條龍，大部分自動</h2>
       <div className={styles.grid}>
         <DemoShot
-          src="assets/deck/p-45.png"
+          src="assets/unitech/p-45.png"
           alt="自動建立工單，寫回 NetSuite ERP 工程服務單"
           size="compact"
           caption="自動建立工單，寫回 NetSuite ERP 工程服務單"
         />
         <DemoShot
-          src="assets/deck/p-46.png"
+          src="assets/unitech/p-46.png"
           alt="處理結果自動寄 Email 通知客戶"
           size="compact"
           caption="處理結果自動寄 Email 通知客戶"
         />
         <DemoShot
-          src="assets/deck/p-49.png"
+          src="assets/unitech/p-49.png"
           alt="語意化查詢 ＋ Gen BI：用講的問維修趨勢，自動產出圖表 Dashboard"
           size="compact"
           caption="語意化查詢 ＋ Gen BI：用講的問維修趨勢，自動產出圖表 Dashboard"

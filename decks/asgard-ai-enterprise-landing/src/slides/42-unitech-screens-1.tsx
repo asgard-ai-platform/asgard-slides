@@ -16,13 +16,13 @@ export default function Slide() {
       <p>給你看真的螢幕——同一套架構，分別面向客戶與內部員工。</p>
       <div className={styles.grid}>
         <DemoShot
-          src="assets/deck/p-42.png"
+          src="assets/unitech/p-42.png"
           alt="台新 AI 小幫手（對客）：問題排除 / 客訴單建立"
           size="medium"
           caption="台新 AI 小幫手（對客）：問題排除 / 客訴單建立"
         />
         <DemoShot
-          src="assets/deck/p-43.png"
+          src="assets/unitech/p-43.png"
           alt="WMS AI 助理（對內）：跨倉庫料件庫存查詢 & 派遣維修人員"
           size="medium"
           caption="WMS AI 助理（對內）：跨倉庫料件庫存查詢 & 派遣維修人員"
