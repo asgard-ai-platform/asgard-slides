@@ -3,7 +3,7 @@ import styles from "./DemoShot.module.css";
 interface DemoShotProps {
   src: string;
   alt: string;
-  size?: "default" | "compact" | "medium" | "large";
+  size?: "default" | "compact" | "medium" | "large" | "page";
   caption?: string;
 }
 

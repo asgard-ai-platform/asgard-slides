@@ -1,0 +1,40 @@
+.stages {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin: 24px 0;
+}
+
+.row { display: flex; align-items: center; gap: 6px; flex: 1; }
+
+.stage {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.icon { font-size: 30px; line-height: 1; }
+
+.en {
+  font: 13px var(--font-mono);
+  color: var(--brand-on-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.label { font-size: 24px; font-weight: 820; color: var(--ink); }
+
+.desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+.arrow { flex: none; color: var(--cyan2); font-size: 26px; }
+
+@media (max-width: 900px) {
+  .stages { flex-direction: column; }
+  .row { flex-direction: column; }
+  .arrow { transform: rotate(90deg); }
+}
