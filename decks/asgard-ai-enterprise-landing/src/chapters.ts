@@ -7,5 +7,5 @@ export const chapters: Chapter[] = [
   { startSlide: 19, title: "Asgard 怎麼做", subtitle: "產品與架構" },
   { startSlide: 32, title: "零售範例",    subtitle: "完整導入 demo" },
   { startSlide: 55, title: "真實客戶",    subtitle: "案例與數字" },
-  { startSlide: 67, title: "怎麼開始",    subtitle: "流程與收尾" },
+  { startSlide: 66, title: "怎麼開始",    subtitle: "流程與收尾" },
 ];

@@ -1,6 +1,6 @@
 import { Kicker, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./67-three-stages.module.css";
+import styles from "./66-three-stages.module.css";
 
 export const meta: SlideMeta = {
   title: "落地的三個階段",

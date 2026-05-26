@@ -1,6 +1,6 @@
 import { QRCodeSVG } from "qrcode.react";
 import type { SlideMeta } from "deck-kit";
-import styles from "./70-thanks-qr.module.css";
+import styles from "./69-thanks-qr.module.css";
 
 export const meta: SlideMeta = {
   title: "謝謝 · Thanks",

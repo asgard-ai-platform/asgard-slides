@@ -1,6 +1,6 @@
 import { Kicker, TwoColumn, Quote } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./69-back-to-meeting.module.css";
+import styles from "./68-back-to-meeting.module.css";
 
 export const meta: SlideMeta = {
   title: "回到那個早會：兩種公司的差距",
