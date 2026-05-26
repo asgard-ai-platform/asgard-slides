@@ -1,5 +1,6 @@
 import { Kicker, Table, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
+import styles from "./08-three-adoptions.module.css";
 
 export const meta: SlideMeta = {
   title: "三種「導入 AI」，只有一種有用",
@@ -12,7 +13,8 @@ export default function Slide() {
     <>
       <Kicker>導入層次比較</Kicker>
       <h2>三種「導入 AI」，只有一種有用</h2>
-      <Table>
+      <div className={styles.center}>
+      <Table large>
         <thead>
           <tr>
             <th></th>
@@ -54,6 +56,7 @@ export default function Slide() {
           建立<strong>難以逾越的競爭優勢</strong>。今天剩下的時間，就是在講第三層怎麼做到。
         </p>
       </Talkbox>
+      </div>
     </>
   );
 }

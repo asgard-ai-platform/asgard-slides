@@ -1,0 +1,14 @@
+.center {
+  min-height: 58vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.center :global(table) {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+  .center { min-height: 0; }
+}

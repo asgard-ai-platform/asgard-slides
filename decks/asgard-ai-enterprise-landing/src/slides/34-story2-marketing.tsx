@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, DashList, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./35-story2-marketing.module.css";
+import styles from "./34-story2-marketing.module.css";
 
 export const meta: SlideMeta = {
   title: "故事二：行銷想衝業績，AI 幫她避開「不該推的人」",

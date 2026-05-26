@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, Quote } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./36-story3-channel-health.module.css";
+import styles from "./35-story3-channel-health.module.css";
 
 export const meta: SlideMeta = {
   title: "故事三：高營收 ≠ 健康，AI 揪出拖後腿的通路",

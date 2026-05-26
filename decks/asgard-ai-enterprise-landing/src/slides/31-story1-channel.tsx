@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./32-story1-channel.module.css";
+import styles from "./31-story1-channel.module.css";
 
 export const meta: SlideMeta = {
   title: "故事一（3/5）：營運追通路與履約",

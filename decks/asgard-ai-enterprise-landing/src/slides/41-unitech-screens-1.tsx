@@ -1,6 +1,6 @@
 import { Kicker, DemoShot } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./42-unitech-screens-1.module.css";
+import styles from "./41-unitech-screens-1.module.css";
 
 export const meta: SlideMeta = {
   title: "Unitech 實際畫面（一）：AI 小幫手 ＋ WMS 庫存查詢",

@@ -1,32 +1,45 @@
-import { Kicker, Quote } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
+import styles from "./02-cold-open.module.css";
 
 export const meta: SlideMeta = {
-  title: "Cold Open：星期一早會",
+  title: "星期一早會",
   section: "Cold Open",
   theme: "dark",
 };
 
+const bars = [82, 74, 78, 66, 50, 38, 27];
+
 export default function Slide() {
   return (
-    <>
-      <Kicker>Cold Open</Kicker>
-      <h2>一個星期一早上的場景</h2>
-      <Quote>
-        <p>
-          星期一早上九點。老闆打開經營總覽，<strong>營收往下掉</strong>。
-        </p>
-        <p>他的第一個反應是：「是不是行銷不夠力？」</p>
-      </Quote>
-      <p>
-        先把這個畫面停在這裡。這個直覺很自然——但<strong>真正的問題根本不在行銷</strong>。
-        如果照這個直覺去加碼廣告，反而會讓事情更糟。
-      </p>
-      <p>
-        這個故事，等一下會完整演給你看。先記住老闆的這個直覺。
-        中間這 50 分鐘，我想講清楚：為什麼大部分企業看到問題的方式，
-        跟 AI 應該幫你看問題的方式，差這麼多。
-      </p>
-    </>
+    <div className={styles.scene}>
+      <div className={styles.screen}>
+        <div className={styles.titleBar}>
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.dot} />
+          <span className={styles.winTitle}>經營總覽 · 週一 09:00</span>
+        </div>
+        <div className={styles.body}>
+          <div className={styles.chart}>
+            {bars.map((h, i) => (
+              <span
+                key={i}
+                className={i >= 4 ? styles.colDown : styles.col}
+                style={{ height: `${h}%` }}
+              />
+            ))}
+          </div>
+          <div className={styles.metric}>
+            <span className={styles.mLabel}>本月營收</span>
+            <span className={styles.mVal}>▼ 往下掉</span>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.react}>
+        <span className={styles.boss}>🧑‍💼 老闆的第一個反應</span>
+        <span className={styles.bubble}>「是不是行銷不夠力？」</span>
+      </div>
+    </div>
   );
 }

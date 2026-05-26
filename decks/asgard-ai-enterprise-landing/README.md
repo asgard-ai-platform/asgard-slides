@@ -9,17 +9,17 @@ delivered as a Vite + React deck on top of [`deck-kit`](../../packages/deck-kit)
   走到「會用 AI 的組織」需要：覆蓋整個生產週期、左右腦（ML/RPA × GenAI）串成閉環、
   一層企業語意層、一個乾淨可治理的資料地基——並用一個完整零售範例與真實客戶數字佐證。
 
-## Chapters (51 slides)
+## Chapters (50 slides)
 
 | # | 段落 | slides |
 |---|---|---|
-| 1 | 開場 — 一個早會的場景 | 01–04 |
-| 2 | AI Paradox — 為什麼企業 AI 大多失敗 | 05–11 |
-| 3 | 正確方向 — 從個人 AI 到組織 AI | 12–19 |
-| 4 | Asgard 怎麼做 — 產品與架構 | 20–27 |
-| 5 | 零售範例 — 完整導入 demo | 28–37 |
-| 6 | 真實客戶 — 案例與數字 | 38–46 |
-| 7 | 怎麼開始 — 流程與收尾 | 47–51 |
+| 1 | 開場 — 一個早會的場景 | 01–03 |
+| 2 | AI Paradox — 為什麼企業 AI 大多失敗 | 04–10 |
+| 3 | 正確方向 — 從個人 AI 到組織 AI | 11–18 |
+| 4 | Asgard 怎麼做 — 產品與架構 | 19–26 |
+| 5 | 零售範例 — 完整導入 demo | 27–36 |
+| 6 | 真實客戶 — 案例與數字 | 37–45 |
+| 7 | 怎麼開始 — 流程與收尾 | 46–50 |
 
 ## Run
 
@@ -60,7 +60,7 @@ src/
 └── slides/
     ├── 01-title.tsx
     ├── 02-cold-open.tsx
-    └── ...              # NN-name.tsx, sequential 01–51, no gaps
+    └── ...              # NN-name.tsx, sequential 01–50, no gaps
 ```
 
 Each slide exports `default` (the component) and `meta` (title + section +
@@ -73,12 +73,12 @@ substance is folded into on-slide copy so each slide is self-explanatory. See
 - **Concept diagrams** (AI Paradox, productivity leap, left/right brain, six-layer
   stack, three modules, ontology architecture, traditional-vs-AI, Unitech results,
   AI-as-muscle) are shown as the prepared illustrations in `public/assets/deck/`,
-  presented **image-led**: kami-dark title chrome + the figure (via `DemoShot`) +
-  one concise takeaway. Light and dark figures alike are framed as insets.
+  presented **image-led**: kami-dark title chrome + the figure (via `DemoShot` or a
+  framed `<img>`) + one concise takeaway. Light and dark figures alike are framed as insets.
 - **Real product / dashboard screenshots** are embedded directly:
-  - `public/assets/retail/` — the multi-channel retail demo (slides 29–36).
-  - `public/assets/product/` — Odin / Mimir / Sindri UI (slides 24–25).
-  - `public/assets/unitech/` — Unitech 售後維修 product screens (slides 42–43).
+  - `public/assets/retail/` — the multi-channel retail demo (slides 28–35).
+  - `public/assets/product/` — Odin / Mimir / Sindri UI (slides 23–24).
+  - `public/assets/unitech/` — Unitech 售後維修 product screens (slides 41–42).
 
 ## Brand assets
 
