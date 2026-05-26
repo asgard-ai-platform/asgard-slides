@@ -9,17 +9,17 @@ delivered as a Vite + React deck on top of [`deck-kit`](../../packages/deck-kit)
   走到「會用 AI 的組織」需要：覆蓋整個生產週期、左右腦（ML/RPA × GenAI）串成閉環、
   一層企業語意層、一個乾淨可治理的資料地基——並用一個完整零售範例與真實客戶數字佐證。
 
-## Chapters (50 slides)
+## Chapters (49 slides)
 
 | # | 段落 | slides |
 |---|---|---|
 | 1 | 開場 — 一個早會的場景 | 01–03 |
 | 2 | AI Paradox — 為什麼企業 AI 大多失敗 | 04–10 |
 | 3 | 正確方向 — 從個人 AI 到組織 AI | 11–18 |
-| 4 | Asgard 怎麼做 — 產品與架構 | 19–26 |
-| 5 | 零售範例 — 完整導入 demo | 27–36 |
-| 6 | 真實客戶 — 案例與數字 | 37–45 |
-| 7 | 怎麼開始 — 流程與收尾 | 46–50 |
+| 4 | Asgard 怎麼做 — 產品與架構 | 19–25 |
+| 5 | 零售範例 — 完整導入 demo | 26–35 |
+| 6 | 真實客戶 — 案例與數字 | 36–44 |
+| 7 | 怎麼開始 — 流程與收尾 | 45–49 |
 
 ## Run
 
@@ -60,7 +60,7 @@ src/
 └── slides/
     ├── 01-title.tsx
     ├── 02-cold-open.tsx
-    └── ...              # NN-name.tsx, sequential 01–50, no gaps
+    └── ...              # NN-name.tsx, sequential 01–49, no gaps
 ```
 
 Each slide exports `default` (the component) and `meta` (title + section +

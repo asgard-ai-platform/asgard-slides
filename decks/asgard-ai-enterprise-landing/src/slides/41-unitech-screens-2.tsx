@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./42-unitech-screens-2.module.css";
+import styles from "./41-unitech-screens-2.module.css";
 
 export const meta: SlideMeta = {
   title: "Unitech 實際畫面（二）：工單 ＋ 回信 ＋ Gen BI",

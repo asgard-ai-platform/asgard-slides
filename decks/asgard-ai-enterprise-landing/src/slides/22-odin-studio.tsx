@@ -1,6 +1,6 @@
 import { Kicker, DemoShot } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./23-odin-studio.module.css";
+import styles from "./22-odin-studio.module.css";
 
 export const meta: SlideMeta = {
   title: "產品實際畫面（一）：Odin Studio",

@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, DashList } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./30-story1-split.module.css";
+import styles from "./29-story1-split.module.css";
 
 export const meta: SlideMeta = {
   title: "故事一（2/5）：把問題拆成三個可追查方向",

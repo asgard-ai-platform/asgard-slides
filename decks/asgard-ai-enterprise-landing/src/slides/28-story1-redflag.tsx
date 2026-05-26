@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./29-story1-redflag.module.css";
+import styles from "./28-story1-redflag.module.css";
 
 export const meta: SlideMeta = {
   title: "故事一（1/5）：老闆早會，營收亮紅燈",

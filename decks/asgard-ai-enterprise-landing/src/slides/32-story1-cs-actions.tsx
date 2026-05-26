@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, DashList, Quote } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./33-story1-cs-actions.module.css";
+import styles from "./32-story1-cs-actions.module.css";
 
 export const meta: SlideMeta = {
   title: "故事一（5/5）：客服止血 ＋ 老闆下四個動作",

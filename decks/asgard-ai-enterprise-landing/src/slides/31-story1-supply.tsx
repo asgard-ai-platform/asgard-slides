@@ -1,6 +1,6 @@
 import { Kicker, DemoShot, Talkbox } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
-import styles from "./32-story1-supply.module.css";
+import styles from "./31-story1-supply.module.css";
 
 export const meta: SlideMeta = {
   title: "故事一（4/5）：商品確認需求還在、倉儲確認缺貨",
