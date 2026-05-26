@@ -1,0 +1,7 @@
+.bottomLine {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-start;
+}
