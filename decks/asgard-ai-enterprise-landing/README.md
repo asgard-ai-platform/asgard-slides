@@ -1,18 +1,32 @@
-# asgard-ai-agent-workshop
+# asgard-ai-enterprise-landing
 
-A 60-minute Traditional-Chinese technical talk — **"從 Chat 到 Agent · 六層架構實戰"** —
+A ~60-minute Traditional-Chinese executive talk — **「企業 AI 發展方向：生成式 AI 的落地應用」** —
 delivered as a Vite + React deck on top of [`deck-kit`](../../packages/deck-kit).
 
-Topics: the six-layer agent stack (Model · Tools · Harness · Sandbox · Session ·
-Governance), how Harness becomes product behavior (planning, memory, permission,
-recovery, tool routing), and where Asgard / Yggdrasil fit.
+- **Speaker:** 王韋仁 William Wang｜Asgard 肆佳科技 CEO
+- **Venue:** Beyond South｜南向無界 2026
+- **Thesis:** 95% 的企業 AI 投資沒回報，不是技術問題、是架構問題。從「會用 AI 的個人」
+  走到「會用 AI 的組織」需要：覆蓋整個生產週期、左右腦（ML/RPA × GenAI）串成閉環、
+  一層企業語意層、一個乾淨可治理的資料地基——並用一個完整零售範例與真實客戶數字佐證。
+
+## Chapters (51 slides)
+
+| # | 段落 | slides |
+|---|---|---|
+| 1 | 開場 — 一個早會的場景 | 01–04 |
+| 2 | AI Paradox — 為什麼企業 AI 大多失敗 | 05–11 |
+| 3 | 正確方向 — 從個人 AI 到組織 AI | 12–19 |
+| 4 | Asgard 怎麼做 — 產品與架構 | 20–27 |
+| 5 | 零售範例 — 完整導入 demo | 28–37 |
+| 6 | 真實客戶 — 案例與數字 | 38–46 |
+| 7 | 怎麼開始 — 流程與收尾 | 47–51 |
 
 ## Run
 
 ```bash
-pnpm install                              # at repo root
-pnpm -F asgard-ai-agent-workshop dev      # http://localhost:5173
-pnpm -F asgard-ai-agent-workshop build    # production build → dist/
+pnpm install                                   # at repo root
+pnpm -F asgard-ai-enterprise-landing dev       # http://localhost:5173
+pnpm -F asgard-ai-enterprise-landing build     # production build → dist/
 ```
 
 ## Navigation
@@ -24,35 +38,47 @@ pnpm -F asgard-ai-agent-workshop build    # production build → dist/
 - `Esc` — clear goto-buffer / close overview / exit fullscreen
 
 On touch devices: swipe horizontally between slides; vertical swipes scroll
-within a slide. A one-time hint chip appears on the first visit.
+within a slide.
 
 ## Export
 
 ```bash
-pnpm -F asgard-ai-agent-workshop export:pdf   # → exports/{date}.pdf
-pnpm -F asgard-ai-agent-workshop export:zip   # → exports/{date}.zip
+pnpm -F asgard-ai-enterprise-landing export:pdf   # → exports/{date}.pdf
+pnpm -F asgard-ai-enterprise-landing export:zip   # → exports/{date}.zip
 ```
 
-PDF export uses Playwright. Both write into this deck's `exports/` folder
-(gitignored).
+PDF export uses Playwright. Both write into this deck's `exports/` folder (gitignored).
 
 ## Slide layout
 
 ```
 src/
 ├── App.tsx              # mounts <DeckProvider> + <Deck>
-├── chapters.ts          # chapter / section grouping for the overview UI
+├── chapters.ts          # 7 chapters for the overview UI
+├── site-meta.ts         # lang=zh-TW, durationMin=60 (for the landing card)
 ├── main.tsx             # ReactDOM entry
 └── slides/
-    ├── 01-opening.tsx
-    ├── 02-speaker.tsx
-    └── ...              # NN-name.tsx, sequential, no gaps
+    ├── 01-title.tsx
+    ├── 02-cold-open.tsx
+    └── ...              # NN-name.tsx, sequential 01–51, no gaps
 ```
 
-Each slide file exports `default` (the component), `meta` (title + section +
-theme), and optional `notes` (speaker notes). See
-[`packages/deck-kit/README.md`](../../packages/deck-kit/README.md) for the
-contract.
+Each slide exports `default` (the component) and `meta` (title + section +
+theme). **This deck intentionally ships no `notes`** — the speaker-prompt
+substance is folded into on-slide copy so each slide is self-explanatory. See
+[`packages/deck-kit/README.md`](../../packages/deck-kit/README.md) for the contract.
+
+## Visual approach
+
+- **Concept diagrams** (AI Paradox, productivity leap, left/right brain, six-layer
+  stack, three modules, ontology architecture, traditional-vs-AI, Unitech results,
+  AI-as-muscle) are shown as the prepared illustrations in `public/assets/deck/`,
+  presented **image-led**: kami-dark title chrome + the figure (via `DemoShot`) +
+  one concise takeaway. Light and dark figures alike are framed as insets.
+- **Real product / dashboard screenshots** are embedded directly:
+  - `public/assets/retail/` — the multi-channel retail demo (slides 29–36).
+  - `public/assets/product/` — Odin / Mimir / Sindri UI (slides 24–25).
+  - `public/assets/unitech/` — Unitech 售後維修 product screens (slides 42–43).
 
 ## Brand assets
 

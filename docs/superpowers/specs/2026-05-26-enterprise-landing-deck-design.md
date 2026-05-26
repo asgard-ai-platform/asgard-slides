@@ -14,9 +14,11 @@
 - **題目**：企業 AI 發展方向：生成式 AI 的落地應用｜講者 王韋仁 William Wang｜Beyond South 2026｜~60 min。
 - **目標 deck**：`decks/asgard-ai-enterprise-landing`，遵循 `asgard-ai-agent-workshop` 的 slide-module contract 與所有 repo 慣例。
 
-## 三個已定案決策（使用者選擇）
+## 已定案決策（使用者選擇）
 
-1. **概念圖用 kami-dark 元件原生重畫**（不嵌入 `assets/deck/*.png`）；只有無法重畫的真實產品/Dashboard 截圖才用 `DemoShot` 放圖。
+> **2026-05-26 建置中修訂（決策 1）：** 使用者在 P3/P4 之間回饋「現況沒有插圖，我有準備素材你應該要多使用」，並選擇「圖為主 + 精簡標題重點」。因此**反轉原決策 1**：12 張準備好的 `assets/deck/*.png` 概念圖改為**直接以 `DemoShot` 裝框、image-led 呈現**（kami 深色標題 chrome + 圖為主角 + 一句重點），不再用 CSS 重畫這些概念。已建好的 05/06/08/13/15/21/26 已 retrofit。其餘無對應圖的概念（表格/流程/角色清單等）仍用 kami-dark 元件。深/淺底圖一律以深色邊框裝成 inset，視覺一致。
+
+1. ~~概念圖用 kami-dark 元件原生重畫~~ → **見上方修訂：概念圖 image-led 呈現準備好的 `assets/deck/*.png`**；真實產品/Dashboard 截圖一律 `DemoShot`。
 2. **全部 51 張 1:1 完整重現**（投影片 1–48 + 13A/13B/20A）。
 3. **不放 `notes`（講稿題詞）**；把 🎤 講者提詞的論述重點融入投影片正文（lead 段落、`DashList`、`Talkbox`/`Quote`）。
 4. 收尾頁放 **QR code（asgard-ai.com）＋ 聯絡資訊**（用 `qrcode.react`，workshop deck 已有此依賴）。
