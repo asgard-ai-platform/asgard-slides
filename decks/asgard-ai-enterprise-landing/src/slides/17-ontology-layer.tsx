@@ -31,7 +31,7 @@ export default function Slide() {
           建一次知識模型，全平台通用，讓 AI <strong>真正理解你的企業語言</strong>。
         </p>
       </Quote>
-      <p style={{ marginTop: "var(--space-4)", marginBottom: "var(--space-2)" }}>
+      <p style={{ marginTop: "16px", marginBottom: "8px" }}>
         <strong>為什麼重要：</strong>
       </p>
       <DashList items={whyMatters} />

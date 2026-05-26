@@ -30,7 +30,7 @@ export default function Slide() {
       <Quote compact>
         <p>再強的 AI，也只能跟它看到的資料一樣聰明。</p>
       </Quote>
-      <p style={{ marginTop: "var(--space-4)", marginBottom: "var(--space-2)" }}>
+      <p style={{ marginTop: "16px", marginBottom: "8px" }}>
         <strong>三個底層要求：</strong>
       </p>
       <DashList items={requirements} />
