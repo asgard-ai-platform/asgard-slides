@@ -5,6 +5,15 @@ Open-source mono-repo for slide decks built on a shared React `deck-kit`.
 Each deck is a Vite + React + TypeScript app that imports primitives, layouts,
 and the carousel shell from `deck-kit`, and provides its own slide files.
 
+## 🌐 Live site
+
+**<https://asgard-ai-platform.github.io/asgard-slides/>**
+
+| Deck | Open |
+| --- | --- |
+| 從 Chat 到 Agent · 六層架構實戰 | <https://asgard-ai-platform.github.io/asgard-slides/asgard-ai-agent-workshop/> |
+| 企業 AI 發展方向：生成式 AI 的落地應用 | <https://asgard-ai-platform.github.io/asgard-slides/asgard-ai-enterprise-landing/> |
+
 ## Layout
 
 ```
@@ -12,7 +21,8 @@ asgard-slides/
 ├── packages/
 │   └── deck-kit/                  # Shared React kit (primitives, layouts, shell, theme)
 └── decks/
-    └── asgard-ai-agent-workshop/  # First deck — "從 Chat 到 Agent · 六層架構實戰" (60-min talk)
+    ├── asgard-ai-agent-workshop/   # "從 Chat 到 Agent · 六層架構實戰" (60-min talk)
+    └── asgard-ai-enterprise-landing/  # "企業 AI 發展方向：生成式 AI 的落地應用" (69 slides)
 ```
 
 - `packages/*` — reusable libraries.
