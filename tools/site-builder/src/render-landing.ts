@@ -97,6 +97,8 @@ const CSS = `
   }
   .footer a { color: rgba(255, 255, 255, 0.6); text-decoration: none; }
   .footer a:hover { color: #06b6d4; }
+  .card--aux { margin-top: 26px; border-style: dashed; }
+  .card--aux:hover { border-style: solid; }
 `;
 
 export function renderLandingHtml(cards: DeckCard[]): string {
@@ -120,6 +122,11 @@ export function renderLandingHtml(cards: DeckCard[]): string {
         <p>Open-source talks on the agent stack. MIT licensed.</p>
       </header>
       ${body}
+      <a class="card card--aux" href="design-system/">
+        <h2 class="card-title">deck-kit Design System</h2>
+        <p class="card-subtitle">Tokens, primitives, layouts — the full component reference for this repo's slide kit.</p>
+        <span class="card-cta">Open reference →</span>
+      </a>
       <footer class="footer">
         <a href="https://github.com/asgard-ai-platform/asgard-slides">GitHub</a> ·
         <a href="https://github.com/asgard-ai-platform/asgard-slides/blob/main/LICENSE">License</a>

@@ -44,6 +44,10 @@ async function main() {
     await snapshotDeck({ card, deckDir, distSiteDir: DIST_SITE });
   }
 
+  const designSystemDir = path.join(WORKSPACE_ROOT, "docs", "design-system");
+  console.log(`▸ copy design-system → dist-site/design-system`);
+  await cp(designSystemDir, path.join(DIST_SITE, "design-system"), { recursive: true });
+
   console.log(`▸ render landing`);
   await writeFile(path.join(DIST_SITE, "index.html"), renderLandingHtml(cards));
 

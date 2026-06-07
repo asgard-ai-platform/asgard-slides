@@ -55,4 +55,10 @@ describe("renderLandingHtml", () => {
     const html = renderLandingHtml([]);
     expect(html).toContain("No decks yet");
   });
+
+  it("links to the design-system page", () => {
+    const html = renderLandingHtml([CARD]);
+    expect(html).toMatch(/href="design-system\/"/);
+    expect(html).toContain("Design System");
+  });
 });
