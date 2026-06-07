@@ -24,5 +24,6 @@ export { Deck } from "./shell/Deck";
 export {
   Matrix, CardGrid, Steps, Diagram, TermRow, SectionTitle, TwoColumn, FlowDiagram,
   GlanceGrid, Table, SectionHeader, Funnel, LayerStack, Timeline, StateMachine, Tree, Swimlane,
+  Agenda, Compare,
 } from "./layouts";
-export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow, StackLayer, Milestone, StateNode, TreeNode, SwimLane } from "./layouts";
+export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow, StackLayer, Milestone, StateNode, TreeNode, SwimLane, AgendaItem, CompareColumn } from "./layouts";

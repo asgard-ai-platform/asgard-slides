@@ -1,0 +1,12 @@
+.agenda { display: grid; gap: 8px; margin-top: 20px; }
+.row {
+  display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 16px;
+  padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel);
+}
+.num { font: 820 22px var(--font-mono); color: var(--brand-on-dark); line-height: 1; }
+.title { font-size: 18px; font-weight: 760; color: var(--ink); line-height: 1.18; }
+.sub { margin-top: 2px; font-size: 13px; color: var(--muted); }
+.time { font: 12px var(--font-mono); color: var(--muted); white-space: nowrap; }
+.row.active { background: var(--panel2); border-color: color-mix(in srgb, var(--brand) 35%, transparent); }
+.row.done .num { color: var(--muted); }
+.row.done .title { color: var(--muted); }

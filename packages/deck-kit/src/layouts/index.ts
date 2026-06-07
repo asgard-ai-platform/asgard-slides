@@ -27,3 +27,7 @@ export { Tree } from "./Tree";
 export type { TreeNode } from "./Tree";
 export { Swimlane } from "./Swimlane";
 export type { SwimLane } from "./Swimlane";
+export { Agenda } from "./Agenda";
+export type { AgendaItem } from "./Agenda";
+export { Compare } from "./Compare";
+export type { CompareColumn } from "./Compare";
