@@ -95,6 +95,12 @@ constraint, not a TODO.
 guarded by `typeof window === "undefined"`. `parseHash()` and
 `discoverSlides()` are pure. Preserve this when adding shell features.
 
+**The design-system reference is a static port, not generated.**
+`docs/design-system/` (published at `/asgard-slides/design-system/`) mirrors
+deck-kit's tokens and component CSS as plain HTML/CSS. When you add or change
+a deck-kit component, manually sync the reference page (add a specimen +
+matching `.dk-*` CSS block) — it drifts otherwise.
+
 ## Conventions worth following
 
 - **Path alias**: `@/*` → `<package>/src/*` in every package's
