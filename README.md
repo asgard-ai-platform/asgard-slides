@@ -13,6 +13,7 @@ and the carousel shell from `deck-kit`, and provides its own slide files.
 | --- | --- |
 | 從 Chat 到 Agent · 六層架構實戰 | <https://asgard-ai-platform.github.io/asgard-slides/asgard-ai-agent-workshop/> |
 | 企業 AI 發展方向：生成式 AI 的落地應用 | <https://asgard-ai-platform.github.io/asgard-slides/asgard-ai-enterprise-landing/> |
+| deck-kit Design System（元件參考） | <https://asgard-ai-platform.github.io/asgard-slides/design-system/> |
 
 ## Layout
 
@@ -20,9 +21,11 @@ and the carousel shell from `deck-kit`, and provides its own slide files.
 asgard-slides/
 ├── packages/
 │   └── deck-kit/                  # Shared React kit (primitives, layouts, shell, theme)
-└── decks/
-    ├── asgard-ai-agent-workshop/   # "從 Chat 到 Agent · 六層架構實戰" (60-min talk)
-    └── asgard-ai-enterprise-landing/  # "企業 AI 發展方向：生成式 AI 的落地應用" (69 slides)
+├── decks/
+│   ├── asgard-ai-agent-workshop/   # "從 Chat 到 Agent · 六層架構實戰" (60-min talk)
+│   └── asgard-ai-enterprise-landing/  # "企業 AI 發展方向：生成式 AI 的落地應用" (69 slides)
+└── docs/
+    └── design-system/             # Static design-system reference (published at /design-system/)
 ```
 
 - `packages/*` — reusable libraries.
@@ -62,6 +65,9 @@ Push to `main` and GitHub Actions builds + deploys to
 `https://asgard-ai-platform.github.io/asgard-slides/`. Each deck becomes a
 pre-rendered HTML at `<slug>/` with its own OG image at `og/<slug>.png`,
 and the root is a static landing listing every deck.
+
+`docs/design-system/` is copied verbatim to `design-system/` — a static
+reference page for every deck-kit token and component.
 
 To build locally: `pnpm exec playwright install chromium && pnpm build:site`.
 Output lands in `dist-site/`.

@@ -12,8 +12,11 @@ export type { SlideMeta, SlideTheme, SlideModule, SlideEntry, Chapter } from "./
 
 export {
   SlideShell, Kicker, Card, Quote, Tag, CodeBlock, Talkbox, Node, ProductCard, Credential, DemoShot,
-  Metric, Button, DashList, ModuleBlock, ModuleNote, PricingCard, ValueAnchors, CodeCard,
+  Metric, Button, DashList, ModuleBlock, ModuleNote, PricingCard, ValueAnchors, CodeCard, Callout, Badge,
+  Avatar, Persona, Facepile, BigStat,
+  ProgressRing, Checklist, Legend,
 } from "./primitives";
+export type { ChecklistItem, LegendItem } from "./primitives";
 export { DeckProvider } from "./shell/DeckProvider";
 export { useDeck } from "./hooks/useDeck";
 export { useKeyboardNav } from "./hooks/useKeyboardNav";
@@ -21,5 +24,6 @@ export { Deck } from "./shell/Deck";
 export {
   Matrix, CardGrid, Steps, Diagram, TermRow, SectionTitle, TwoColumn, FlowDiagram,
   GlanceGrid, Table, SectionHeader, Funnel, LayerStack, Timeline, StateMachine, Tree, Swimlane,
+  Agenda, Compare,
 } from "./layouts";
-export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow, StackLayer, Milestone, StateNode, TreeNode, SwimLane } from "./layouts";
+export type { Step, Term, FlowDiagramNode, GlanceCell, FunnelRow, StackLayer, Milestone, StateNode, TreeNode, SwimLane, AgendaItem, CompareColumn } from "./layouts";

@@ -1,0 +1,18 @@
+.callout {
+  --accent: var(--brand-on-dark);
+  display: flex; gap: 13px; margin-top: 16px; padding: 14px 16px;
+  border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 7%, var(--panel));
+}
+.icon {
+  flex: 0 0 auto; display: grid; place-items: center; width: 26px; height: 26px;
+  border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent); font: 800 14px var(--font-mono); line-height: 1;
+}
+/* Body styles live on .body (not .body p) so bare-string children render styled too. */
+.body { min-width: 0; color: var(--muted); font-size: 14.5px; line-height: 1.4; }
+.title { font-size: 15px; font-weight: 780; color: var(--ink); margin-bottom: 3px; }
+.info { --accent: var(--brand-on-dark); }
+.good { --accent: var(--good); }
+.warn { --accent: var(--warn); }
+.bad  { --accent: var(--bad); }

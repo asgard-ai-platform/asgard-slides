@@ -1,0 +1,10 @@
+.checklist { list-style: none; margin: 16px 0 0; padding: 0; }
+.checklist li {
+  position: relative; padding-left: 30px; margin: 9px 0; font-size: 16px; line-height: 1.4; color: var(--ink);
+}
+.checklist li::before {
+  position: absolute; left: 0; top: 1px; width: 20px; height: 20px;
+  display: grid; place-items: center; border-radius: 6px; font: 800 12px var(--font-mono);
+}
+.checklist li.yes::before { content: "\2713"; color: var(--good); background: color-mix(in srgb, var(--good) 16%, transparent); }
+.checklist li.no::before  { content: "\2715"; color: var(--bad);  background: color-mix(in srgb, var(--bad) 16%, transparent); }

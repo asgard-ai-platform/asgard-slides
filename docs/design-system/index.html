@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asgard deck-kit — Design System</title>
+<link rel="preload" href="assets/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="deck-kit.css" />
+<style>
+  /* ----------------------------------------------------------------------
+     PAGE CHROME — not part of the kit; the reference-site shell only.
+     ---------------------------------------------------------------------- */
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    min-height: 100%;
+    color: var(--ink);
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(circle at 12% -10%, rgba(45,90,138,.10), transparent 36%),
+      radial-gradient(circle at 100% 4%,  rgba(45,90,138,.06), transparent 30%),
+      linear-gradient(140deg, #141413 0%, #1a1a17 56%, #141413 100%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .layout { display: grid; grid-template-columns: 264px 1fr; align-items: start; }
+
+  /* ---- sidebar ---- */
+  .rail {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    padding: 30px 22px 40px;
+    border-right: 1px solid var(--line);
+    background: rgba(20,20,19,.55);
+    backdrop-filter: blur(8px);
+  }
+  .rail__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .rail__orb {
+    display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto;
+    border: 1px solid var(--line); border-radius: 13px; background: var(--panel2);
+  }
+  .rail__orb img { width: 28px; height: 28px; }
+  .rail__name { font-size: 17px; font-weight: 820; letter-spacing: -.01em; line-height: 1.05; }
+  .rail__sub { margin-top: 2px; font: 11px var(--font-mono); letter-spacing: .04em; color: var(--muted); }
+  .rail__tag {
+    display: inline-block; margin: 16px 0 22px; padding: 4px 10px;
+    border: 1px solid var(--line); border-radius: 999px;
+    font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brand-on-dark);
+    background: var(--brand-tint);
+  }
+  .nav { display: flex; flex-direction: column; gap: 1px; }
+  .nav__group {
+    margin: 18px 0 6px; font: 600 10.5px var(--font-mono);
+    letter-spacing: .14em; text-transform: uppercase; color: var(--muted); opacity: .7;
+  }
+  .nav a {
+    display: flex; align-items: center; gap: 9px;
+    padding: 7px 11px; border-radius: 9px;
+    color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600;
+    border: 1px solid transparent; transition: color .15s, background .15s, border-color .15s;
+  }
+  .nav a:hover { color: var(--ink); background: var(--panel); }
+  .nav a.is-active { color: var(--cyan2); background: var(--brand-tint); border-color: color-mix(in srgb, var(--brand) 30%, transparent); }
+  .nav a .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .55; flex: 0 0 auto; }
+
+  /* ---- main ---- */
+  main { padding: 0 clamp(28px, 4.5vw, 76px) 120px; max-width: 1240px; }
+  section { scroll-margin-top: 28px; padding: 64px 0 8px; }
+  section + section { border-top: 1px solid var(--line); }
+
+  .sec-head { margin-bottom: 30px; }
+  .sec-head .eyebrow {
+    display: flex; align-items: center; gap: 9px;
+    font: 600 12.5px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 13px;
+  }
+  .sec-head .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
+  .sec-head h2 { margin: 0; font-size: clamp(30px, 3.4vw, 44px); font-weight: 820; line-height: 1.06; letter-spacing: -.015em; }
+  .sec-head p { margin: 12px 0 0; max-width: 760px; color: var(--muted); font-size: 17px; line-height: 1.5; }
+
+  /* ---- hero ---- */
+  .hero { padding-top: 72px; }
+  .hero h1 {
+    margin: 22px 0 0; font-size: clamp(46px, 6.4vw, 92px); font-weight: 860;
+    line-height: .98; letter-spacing: -.03em; max-width: 16ch;
+  }
+  .hero .lead { margin: 26px 0 0; max-width: 680px; color: var(--muted); font-size: 20px; line-height: 1.5; }
+  .hero__meta { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+  .hero__meta .num { font-size: 40px; font-weight: 820; color: var(--brand-on-dark); font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -.02em; }
+  .hero__meta .lbl { margin-top: 7px; font: 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .hero__philo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 46px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--line); }
+  .hero__philo > div { padding: 20px 22px; background: var(--panel); }
+  .hero__philo h4 { margin: 0 0 7px; font-size: 15px; font-weight: 760; color: var(--cyan2); }
+  .hero__philo p { margin: 0; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
+
+  /* ---- specimen grid ---- */
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .grid--layouts { grid-template-columns: 1fr; }
+  .spec { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; background: rgba(31,31,29,.4); overflow: hidden; }
+  .spec--wide { grid-column: 1 / -1; }
+  .spec__head { padding: 16px 20px 14px; border-bottom: 1px solid var(--line); }
+  .spec__name { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .spec__name b { font-size: 16px; font-weight: 780; letter-spacing: -.01em; }
+  .spec__name code { font: 12px var(--font-mono); color: var(--brand-on-dark); background: var(--brand-tint); padding: 2px 7px; border-radius: 6px; }
+  .spec__desc { margin: 7px 0 0; font-size: 13.5px; line-height: 1.42; color: var(--muted); }
+  .spec__stage {
+    flex: 1; padding: 24px 22px; display: flex; flex-direction: column; justify-content: center;
+    background:
+      linear-gradient(0deg, rgba(0,0,0,.12), rgba(0,0,0,.12)),
+      repeating-linear-gradient(45deg, rgba(245,244,237,.012) 0 12px, transparent 12px 24px);
+  }
+  .spec__stage > * { margin-top: 0 !important; }
+  .spec__stage .stack-gap > * + * { margin-top: 12px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+  /* ---- color swatches ---- */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(186px, 1fr)); gap: 12px; }
+  .swatch { border: 1px solid var(--line); border-radius: 13px; overflow: hidden; cursor: pointer; background: var(--panel); transition: border-color .15s, transform .12s; }
+  .swatch:hover { border-color: color-mix(in srgb, var(--brand) 45%, transparent); transform: translateY(-2px); }
+  .swatch__chip { height: 64px; position: relative; }
+  .swatch__chip--alpha { background-image: linear-gradient(45deg, #2a2a27 25%, transparent 25%), linear-gradient(-45deg, #2a2a27 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #2a2a27 75%), linear-gradient(-45deg, transparent 75%, #2a2a27 75%); background-size: 14px 14px; background-position: 0 0, 0 7px, 7px -7px, -7px 0; }
+  .swatch__chip > span { position: absolute; inset: 0; }
+  .swatch__meta { padding: 10px 12px 11px; }
+  .swatch__meta b { display: block; font-size: 13.5px; font-weight: 700; }
+  .swatch__meta code { font: 11.5px var(--font-mono); color: var(--muted); }
+  .swatch__var { display: block; margin-top: 3px; font: 11px var(--font-mono); color: var(--brand-on-dark); }
+  .group-label { margin: 30px 0 14px; font: 600 11px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .group-label:first-child { margin-top: 0; }
+
+  /* ---- type scale ---- */
+  .type-row { display: grid; grid-template-columns: 132px 1fr; gap: 24px; align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .type-row:last-child { border-bottom: none; }
+  .type-row .meta { font: 11.5px/1.6 var(--font-mono); color: var(--muted); }
+  .type-row .meta b { display: block; color: var(--cyan2); font-size: 12.5px; letter-spacing: .04em; }
+  .t-h1 { font-size: clamp(40px, 5vw, 70px); font-weight: 860; line-height: 1.04; letter-spacing: -.01em; }
+  .t-h2 { font-size: clamp(28px, 3.2vw, 45px); font-weight: 820; line-height: 1.06; }
+  .t-h3 { font-size: 21px; font-weight: 780; line-height: 1.16; }
+  .t-lead { font-size: 22px; font-weight: 520; line-height: 1.38; color: var(--muted); max-width: 760px; }
+  .t-body { font-size: 16px; line-height: 1.5; color: var(--muted); max-width: 680px; }
+  .t-mono { font: 14px/1.5 var(--font-mono); color: var(--ink); }
+
+  /* ---- token tables (spacing/radius/shadow) ---- */
+  .tok-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .tok { border: 1px solid var(--line); border-radius: 13px; padding: 14px; background: var(--panel); }
+  .tok__demo { height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .tok__box { width: 80px; height: 48px; background: var(--brand-tint); border: 1px solid color-mix(in srgb,var(--brand) 50%, transparent); }
+  .tok b { font-size: 14px; font-weight: 700; }
+  .tok code { display: block; margin-top: 2px; font: 11.5px var(--font-mono); color: var(--muted); }
+
+  /* ---- example slide (SlideShell composed) ---- */
+  .slide-wrap { display: flex; justify-content: center; }
+  .dk-slide {
+    position: relative; width: 100%; max-width: 1180px; aspect-ratio: 16 / 9;
+    overflow: hidden; padding: 42px 58px;
+    border: 1px solid var(--line); border-radius: 24px;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(45, 90, 138, .10), transparent 30%),
+      linear-gradient(135deg, var(--bg2), var(--bg));
+    box-shadow: var(--shadow);
+  }
+  .dk-slide > * { position: relative; z-index: 1; }
+  .dk-slide--mini { aspect-ratio: 16 / 10; padding: 22px 26px; border-radius: 16px; }
+  .dk-slide--mini .dk-kicker { font-size: 11px; min-height: 24px; padding: 4px 9px; }
+
+  /* ---- shell behaviour cards ---- */
+  .shell-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .shell-card { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: var(--panel); }
+  .shell-card h4 { margin: 0 0 8px; font-size: 17px; font-weight: 780; }
+  .shell-card .kbd { display: inline-flex; gap: 5px; margin-bottom: 12px; }
+  .shell-card .kbd span { padding: 3px 9px; border: 1px solid var(--line); border-radius: 7px; background: var(--card); font: 12px var(--font-mono); color: var(--brand-on-dark); }
+  .shell-card p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  .shell-card code { font: 12.5px var(--font-mono); color: var(--cyan2); }
+
+  footer { margin-top: 90px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; line-height: 1.6; }
+  footer code { font: 12.5px var(--font-mono); color: var(--brand-on-dark); }
+
+  /* ---- copy toast ---- */
+  .toast {
+    position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%) translateY(20px);
+    padding: 11px 20px; border-radius: 11px; background: var(--card); border: 1px solid var(--line);
+    color: var(--ink); font: 600 14px var(--font-sans); box-shadow: var(--shadow);
+    opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 99;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast code { font: 13px var(--font-mono); color: var(--brand-on-dark); }
+
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; }
+    .rail { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--line); }
+    .nav { flex-flow: row wrap; }
+    .nav__group { width: 100%; }
+    .grid, .shell-grid, .hero__philo { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <!-- ====================== SIDEBAR ====================== -->
+  <aside class="rail">
+    <div class="rail__brand">
+      <span class="rail__orb"><img src="assets/asgard-logo-color.svg" alt="Asgard AI" /></span>
+      <div>
+        <div class="rail__name">deck-kit</div>
+        <div class="rail__sub">asgard-slides</div>
+      </div>
+    </div>
+    <span class="rail__tag">Design System</span>
+    <nav class="nav" id="nav">
+      <a href="#overview"><span class="dot"></span>Overview</a>
+      <div class="nav__group">Foundations</div>
+      <a href="#colors"><span class="dot"></span>Color</a>
+      <a href="#type"><span class="dot"></span>Typography</a>
+      <a href="#spacing"><span class="dot"></span>Spacing · Radius · Shadow</a>
+      <div class="nav__group">Components</div>
+      <a href="#primitives"><span class="dot"></span>Primitives</a>
+      <a href="#layouts"><span class="dot"></span>Layouts</a>
+      <a href="#extended"><span class="dot"></span>Extended <span style="margin-left:auto;font:600 9px var(--font-mono);color:var(--brand-on-dark);background:var(--brand-tint);padding:2px 6px;border-radius:5px;letter-spacing:.06em">+9</span></a>
+      <div class="nav__group">In context</div>
+      <a href="#slide"><span class="dot"></span>Example slide</a>
+      <a href="#shell"><span class="dot"></span>Shell behaviour</a>
+    </nav>
+  </aside>
+
+  <!-- ====================== MAIN ====================== -->
+  <main>
+    <!-- ---------- OVERVIEW ---------- -->
+    <section id="overview" class="hero">
+      <div class="sec-head" style="margin-bottom:0">
+        <div class="eyebrow">Asgard AI · Enterprise AI Platform</div>
+      </div>
+      <h1>一套暗色技術簡報的設計系統</h1>
+      <p class="lead">
+        <b style="color:var(--ink);font-weight:760">deck-kit</b> 是 asgard-slides mono-repo 共用的 React 簡報元件庫 ——
+        暖炭黑底、單一 ink-blue 識別、kami whisper 極淡陰影。一套 tokens、primitives 與 layouts，驅動所有 deck。
+      </p>
+      <div class="hero__meta">
+        <div><div class="num">19</div><div class="lbl">Primitives</div></div>
+        <div><div class="num">17</div><div class="lbl">Layouts</div></div>
+        <div><div class="num">1</div><div class="lbl">Theme · dark-only</div></div>
+        <div><div class="num">Space&nbsp;Grotesk</div><div class="lbl">Variable typeface</div></div>
+      </div>
+      <div class="hero__philo">
+        <div><h4>暖炭黑，無冷色</h4><p>底色 #141413 暖炭黑，介面全程無純黑、無冷灰，維持 kami 紙感的沉穩。</p></div>
+        <div><h4>單一 ink-blue 識別</h4><p>品牌色 #2D5A8A 一色到底；功能色（綠/琥珀/赭紅）刻意去飽和，不搶主色。</p></div>
+        <div><h4>Kami whisper 陰影</h4><p>只用 0 4px 24px / .28 的極淡陰影，不用硬投影、不用 glow，邊界靠 1px hairline。</p></div>
+      </div>
+    </section>
+
+    <!-- ---------- COLOR ---------- -->
+    <section id="colors">
+      <div class="sec-head">
+        <div class="eyebrow">Foundations / Token</div>
+        <h2>Color</h2>
+        <p>所有顏色都是 <code>:root</code> 的 CSS 變數，定義於 <code>theme/tokens.css</code>。點任一色票即可複製其 <code>var()</code> 名稱。</p>
+      </div>
+
+      <div class="group-label">Base — 暖炭黑骨架</div>
+      <div class="swatches" data-swatches>
+        <div class="swatch" data-copy="var(--bg)"><div class="swatch__chip"><span style="background:#141413"></span></div><div class="swatch__meta"><b>bg</b><code>#141413</code><span class="swatch__var">--bg</span></div></div>
+        <div class="swatch" data-copy="var(--bg2)"><div class="swatch__chip"><span style="background:#1a1a17"></span></div><div class="swatch__meta"><b>bg2</b><code>#1a1a17</code><span class="swatch__var">--bg2</span></div></div>
+        <div class="swatch" data-copy="var(--ink)"><div class="swatch__chip"><span style="background:#f5f4ed"></span></div><div class="swatch__meta"><b>ink</b><code>#f5f4ed</code><span class="swatch__var">--ink</span></div></div>
+        <div class="swatch" data-copy="var(--muted)"><div class="swatch__chip"><span style="background:#b8b5ab"></span></div><div class="swatch__meta"><b>muted</b><code>#b8b5ab</code><span class="swatch__var">--muted</span></div></div>
+        <div class="swatch" data-copy="var(--line)"><div class="swatch__chip swatch__chip--alpha"><span style="background:rgba(245,244,237,.10)"></span></div><div class="swatch__meta"><b>line</b><code>#f5f4ed · 10%</code><span class="swatch__var">--line</span></div></div>
+      </div>
+
+      <div class="group-label">Surfaces — 卡片與面板</div>
+      <div class="swatches" data-swatches>
+        <div class="swatch" data-copy="var(--card)"><div class="swatch__chip"><span style="background:#1f1f1d"></span></div><div class="swatch__meta"><b>card</b><code>#1f1f1d</code><span class="swatch__var">--card</span></div></div>
+        <div class="swatch" data-copy="var(--panel)"><div class="swatch__chip swatch__chip--alpha"><span style="background:rgba(245,244,237,.035)"></span></div><div class="swatch__meta"><b>panel</b><code>#f5f4ed · 3.5%</code><span class="swatch__var">--panel</span></div></div>
+        <div class="swatch" data-copy="var(--panel2)"><div class="swatch__chip swatch__chip--alpha"><span style="background:rgba(245,244,237,.06)"></span></div><div class="swatch__meta"><b>panel2</b><code>#f5f4ed · 6%</code><span class="swatch__var">--panel2</span></div></div>
+      </div>
+
+      <div class="group-label">Brand — 單一 ink-blue 識別</div>
+      <div class="swatches" data-swatches>
+        <div class="swatch" data-copy="var(--brand)"><div class="swatch__chip"><span style="background:#2D5A8A"></span></div><div class="swatch__meta"><b>brand</b><code>#2D5A8A</code><span class="swatch__var">--brand</span></div></div>
+        <div class="swatch" data-copy="var(--brand-bright)"><div class="swatch__chip"><span style="background:#7ba3cf"></span></div><div class="swatch__meta"><b>brand-bright</b><code>#7ba3cf</code><span class="swatch__var">--brand-bright</span></div></div>
+        <div class="swatch" data-copy="var(--brand-on-dark)"><div class="swatch__chip"><span style="background:#9ec1e6"></span></div><div class="swatch__meta"><b>brand-on-dark</b><code>#9ec1e6</code><span class="swatch__var">--brand-on-dark</span></div></div>
+        <div class="swatch" data-copy="var(--cyan2)"><div class="swatch__chip"><span style="background:#9ec1e6"></span></div><div class="swatch__meta"><b>cyan2 · links</b><code>#9ec1e6</code><span class="swatch__var">--cyan2</span></div></div>
+        <div class="swatch" data-copy="var(--brand-tint)"><div class="swatch__chip swatch__chip--alpha"><span style="background:rgba(45,90,138,.18)"></span></div><div class="swatch__meta"><b>brand-tint</b><code>#2D5A8A · 18%</code><span class="swatch__var">--brand-tint</span></div></div>
+      </div>
+
+      <div class="group-label">Functional — 去飽和的語意色</div>
+      <div class="swatches" data-swatches>
+        <div class="swatch" data-copy="var(--green)"><div class="swatch__chip"><span style="background:#6f9c6e"></span></div><div class="swatch__meta"><b>green · good</b><code>#6f9c6e</code><span class="swatch__var">--green / --good</span></div></div>
+        <div class="swatch" data-copy="var(--amber)"><div class="swatch__chip"><span style="background:#c9a24b"></span></div><div class="swatch__meta"><b>amber · warn</b><code>#c9a24b</code><span class="swatch__var">--amber / --warn</span></div></div>
+        <div class="swatch" data-copy="var(--rose)"><div class="swatch__chip"><span style="background:#c47a72"></span></div><div class="swatch__meta"><b>rose · bad</b><code>#c47a72</code><span class="swatch__var">--rose / --bad</span></div></div>
+        <div class="swatch" data-copy="var(--purple)"><div class="swatch__chip"><span style="background:#8c84a8"></span></div><div class="swatch__meta"><b>purple</b><code>#8c84a8</code><span class="swatch__var">--purple</span></div></div>
+        <div class="swatch" data-copy="var(--pink)"><div class="swatch__chip"><span style="background:#b08aa0"></span></div><div class="swatch__meta"><b>pink</b><code>#b08aa0</code><span class="swatch__var">--pink</span></div></div>
+      </div>
+
+      <div class="group-label">Paper — kami parchment 反相基底</div>
+      <div class="swatches" data-swatches>
+        <div class="swatch" data-copy="var(--paper)"><div class="swatch__chip"><span style="background:#f5f4ed"></span></div><div class="swatch__meta"><b>paper</b><code>#f5f4ed</code><span class="swatch__var">--paper</span></div></div>
+        <div class="swatch" data-copy="var(--paper-ink)"><div class="swatch__chip"><span style="background:#141413"></span></div><div class="swatch__meta"><b>paper-ink</b><code>#141413</code><span class="swatch__var">--paper-ink</span></div></div>
+      </div>
+    </section>
+
+    <!-- ---------- TYPOGRAPHY ---------- -->
+    <section id="type">
+      <div class="sec-head">
+        <div class="eyebrow">Foundations / Token</div>
+        <h2>Typography</h2>
+        <p>單一字族 <code>Space Grotesk</code>（variable，自帶 woff2），中文 fallback 至 Noto Sans TC / PingFang TC。標題很重（800–860）、字級大、字距收緊。</p>
+      </div>
+
+      <div class="type-row"><div class="meta"><b>h1</b>clamp 44–70px<br>weight 860<br>line 1.06</div><div class="t-h1">從會聊天的 AI，到能交辦工作的 Agent</div></div>
+      <div class="type-row"><div class="meta"><b>h2</b>clamp 30–45px<br>weight 820<br>line 1.06</div><div class="t-h2">Agent 系統的六層技術架構</div></div>
+      <div class="type-row"><div class="meta"><b>h3</b>21px<br>weight 780<br>line 1.16</div><div class="t-h3">不是學一堆術語，而是把 AI 變成夥伴</div></div>
+      <div class="type-row"><div class="meta"><b>lead</b>22px<br>weight 520<br>muted</div><div class="t-lead">先建立 AI Chat / AI Agent / 六層架構的共同語言，再拆 MCP、Skill、Sandbox、Plugin。</div></div>
+      <div class="type-row"><div class="meta"><b>body</b>16px<br>weight 400<br>line 1.5</div><div class="t-body">六層分離讓模型、工具、runtime、執行環境、狀態儲存與治理政策可以各自演進；這也是 agent 從 demo 走向 production 的基本拆分。</div></div>
+      <div class="type-row"><div class="meta"><b>kicker</b>14px · 760<br>uppercase<br>0.08em</div><div><span class="dk-kicker">AI Agent Work Method</span></div></div>
+      <div class="type-row"><div class="meta"><b>mono</b>system mono<br>labels / code</div><div class="t-mono">pnpm -F asgard-ai-agent-workshop dev</div></div>
+    </section>
+
+    <!-- ---------- SPACING / RADIUS / SHADOW ---------- -->
+    <section id="spacing">
+      <div class="sec-head">
+        <div class="eyebrow">Foundations / Token</div>
+        <h2>Spacing · Radius · Shadow</h2>
+        <p>圓角是系統的個性所在：小元件 6–10px，卡片 14–18px，slide / diagram 容器 22–24px，pill 用 999px。陰影只有一階。</p>
+      </div>
+
+      <div class="group-label">Radius scale</div>
+      <div class="tok-grid">
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:6px"></div></div><b>xs</b><code>6px · tags, items</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:8px"></div></div><b>sm</b><code>8px · buttons, code</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:10px"></div></div><b>md</b><code>10px · matrix, credential</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:14px"></div></div><b>lg</b><code>14px · talkbox, termrow</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:18px"></div></div><b>xl</b><code>18px · card</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:24px"></div></div><b>2xl</b><code>24px · SlideShell</code></div>
+        <div class="tok"><div class="tok__demo"><div class="tok__box" style="border-radius:999px;width:64px"></div></div><b>pill</b><code>999px · kicker, state</code></div>
+      </div>
+
+      <div class="group-label">Shadow &amp; hairline</div>
+      <div class="tok-grid">
+        <div class="tok" style="background:transparent;border:none;padding:0">
+          <div style="padding:26px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);border:1px solid var(--line)">
+            <b style="color:var(--ink)">--shadow</b>
+            <code>0 4px 24px rgba(0,0,0,.28)</code>
+          </div>
+        </div>
+        <div class="tok"><div class="tok__demo"><div style="width:90%;height:1px;background:var(--line)"></div></div><b>hairline</b><code>1px solid --line</code></div>
+        <div class="tok"><div class="tok__demo"><div style="width:80px;height:48px;border-radius:14px;background:var(--panel);border:1px solid var(--line)"></div></div><b>panel fill</b><code>translucent --panel</code></div>
+      </div>
+    </section>
+
+    <!-- ---------- PRIMITIVES ---------- -->
+    <section id="primitives">
+      <div class="sec-head">
+        <div class="eyebrow">Components / 19</div>
+        <h2>Primitives</h2>
+        <p>最小可組合的 building blocks。全部從 <code>deck-kit</code> barrel 匯入，承接 token，不自帶顏色。</p>
+      </div>
+
+      <div class="grid">
+        <!-- SlideShell -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>SlideShell</b><code>&lt;SlideShell&gt;</code></div><p class="spec__desc">每張投影片的外框：16:9、圓角 24、極淡陰影、右下角頁碼。詳見 §Example slide。</p></div>
+          <div class="spec__stage dk">
+            <div class="dk-slide dk-slide--mini">
+              <span class="dk-kicker">Six-Layer Stack</span>
+              <h3 style="margin-top:14px;font-size:24px">Agent 系統的六層技術架構</h3>
+              <p style="margin-top:10px;color:var(--muted);font-size:14px;max-width:60ch">模型、工具、runtime、執行、狀態、治理 —— 六層分離，各自演進。</p>
+              <span class="dk-slideno">07 / 101</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Kicker -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Kicker</b><code>&lt;Kicker&gt;</code></div><p class="spec__desc">大寫 eyebrow pill，可加 <code>layer</code> 後綴標示架構層。</p></div>
+          <div class="spec__stage dk"><div class="row"><span class="dk-kicker">AI Agent Work Method</span><span class="dk-kicker" data-layer="L2 · Tools / MCP">Tool Layer</span></div></div>
+        </article>
+
+        <!-- Tag -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Tag</b><code>&lt;Tag&gt;</code></div><p class="spec__desc">mono 小標籤，brand-tint 底。</p></div>
+          <div class="spec__stage dk"><div class="row"><span class="dk-tag">Today</span><span class="dk-tag">MCP</span><span class="dk-tag">stdio</span><span class="dk-tag">A2A</span></div></div>
+        </article>
+
+        <!-- Card -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Card</b><code>&lt;Card&gt;</code><code>variant="strong"</code></div><p class="spec__desc">基礎卡片，頂端有一條漸層 hairline。<code>strong</code> 加深底色與品牌邊框。</p></div>
+          <div class="spec__stage dk"><div class="dk-cardgrid--2" style="margin-top:0">
+            <div class="dk-card"><span class="dk-tag">Today</span><h3 style="margin-top:10px">不是學一堆術語</h3><p>而是知道怎麼把 AI 從聊天工具，變成可以被委派工作的夥伴。</p></div>
+            <div class="dk-card dk-card--strong"><span class="dk-tag">Outcome</span><h3 style="margin-top:10px">你會帶走一套路線圖</h3><p>知道什麼時候用 chat、什麼時候需要 agent，以及工具如何接入。</p></div>
+          </div></div>
+        </article>
+
+        <!-- Quote -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Quote</b><code>&lt;Quote&gt;</code></div><p class="spec__desc">大字引言，左側品牌色粗邊。<code>compact</code> 較小。</p></div>
+          <div class="spec__stage dk"><div class="dk-quote" style="margin-top:0">把 AI 從聊天工具，變成可以被委派工作的夥伴。</div></div>
+        </article>
+
+        <!-- Talkbox -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Talkbox</b><code>&lt;Talkbox&gt;</code></div><p class="spec__desc">補充講解框，可帶大寫 label。</p></div>
+          <div class="spec__stage dk"><div class="dk-talkbox" style="margin-top:0"><b>講者補充</b><p>六層分離讓模型、工具、runtime 與治理政策各自演進，是 agent 從 demo 走向 production 的基本拆分。</p></div></div>
+        </article>
+
+        <!-- Metric -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Metric</b><code>&lt;Metric&gt;</code></div><p class="spec__desc">數值 + 標籤，tabular-nums。</p></div>
+          <div class="spec__stage dk"><div class="row" style="gap:28px"><span class="dk-metric"><span class="dk-metric__value">99.2%</span><span class="dk-metric__label">任務成功率</span></span><span class="dk-metric"><span class="dk-metric__value">1.8s</span><span class="dk-metric__label">平均延遲</span></span></div></div>
+        </article>
+
+        <!-- Button -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Button</b><code>&lt;Button&gt;</code></div><p class="spec__desc">primary / secondary 兩種。</p></div>
+          <div class="spec__stage dk"><div class="row"><a class="dk-btn dk-btn--primary">開始 Workshop</a><a class="dk-btn dk-btn--secondary">查看原始碼</a></div></div>
+        </article>
+
+        <!-- Node -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Node</b><code>&lt;Node&gt;</code></div><p class="spec__desc">流程圖節點：標題 + 說明，FlowDiagram 的單元。</p></div>
+          <div class="spec__stage dk"><div class="dk-node" style="max-width:240px"><b>Harness</b><span>Plan · Route · Retry runtime</span></div></div>
+        </article>
+
+        <!-- Credential -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Credential</b><code>&lt;Credential&gt;</code></div><p class="spec__desc">左側品牌色細邊的引述 / 憑證行。</p></div>
+          <div class="spec__stage dk"><div class="dk-credential">前 Google Cloud 架構師 · 帶過 30+ 企業導入生成式 AI 落地專案。</div></div>
+        </article>
+
+        <!-- DashList -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>DashList</b><code>&lt;DashList&gt;</code></div><p class="spec__desc">破折號項目列表。</p></div>
+          <div class="spec__stage dk"><ul class="dk-dashlist" style="margin-top:0"><li>模型理解與生成</li><li>工具呼叫與 MCP 介面</li><li>沙箱化執行與隔離</li></ul></div>
+        </article>
+
+        <!-- ValueAnchors -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>ValueAnchors</b><code>&lt;ValueAnchors&gt;</code></div><p class="spec__desc">標題 + 描述的分隔清單。</p></div>
+          <div class="spec__stage dk"><ul class="dk-anchors" style="margin:0"><li><span class="dk-anchors__title">可委派</span><span class="dk-anchors__desc">把任務交辦給 agent，而非逐步操作。</span></li><li><span class="dk-anchors__title">可治理</span><span class="dk-anchors__desc">身分、審批、軌跡三問可回答。</span></li><li><span class="dk-anchors__title">可落地</span><span class="dk-anchors__desc">從 demo 到 production 的清晰路徑。</span></li></ul></div>
+        </article>
+
+        <!-- ModuleBlock -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>ModuleBlock</b><code>&lt;ModuleBlock&gt;</code></div><p class="spec__desc">編號模組標頭 + 內文。</p></div>
+          <div class="spec__stage dk"><div class="dk-module" style="margin-top:0"><div class="dk-module__head"><span class="dk-module__letter">A</span><div><div class="dk-module__title">Tool Use 基礎</div><div class="dk-module__sub">Module · 12 min</div></div></div><div class="dk-module__body">從 function calling 到 MCP，建立工具呼叫的共同語言。</div></div></div>
+        </article>
+
+        <!-- ModuleNote -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>ModuleNote</b><code>&lt;ModuleNote&gt;</code></div><p class="spec__desc">小型註記塊，mono label。</p></div>
+          <div class="spec__stage dk"><div class="dk-modulenote" style="margin-top:0"><div class="dk-modulenote__label">Note</div><div class="dk-modulenote__body">stdio server 適合本機工具；遠端能力改用 HTTP server。</div></div></div>
+        </article>
+
+        <!-- PricingCard -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>PricingCard</b><code>&lt;PricingCard&gt;</code></div><p class="spec__desc">eyebrow + 幣別 + 金額 + 單位 + 註。</p></div>
+          <div class="spec__stage dk"><div class="dk-pricing" style="margin-top:0"><div class="dk-pricing__eyebrow">Enterprise</div><div class="dk-pricing__price"><span class="dk-pricing__currency">$</span><span class="dk-pricing__amount">0.02</span><span class="dk-pricing__unit">/ 1K tokens</span></div><div class="dk-pricing__note">含治理、審計與 SSO，年約。</div></div></div>
+        </article>
+
+        <!-- CodeBlock -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>CodeBlock</b><code>&lt;CodeBlock&gt;</code></div><p class="spec__desc">inline 程式碼塊，<code>pre-wrap</code>。</p></div>
+          <div class="spec__stage dk"><div class="dk-code" style="margin-top:0">$ pnpm -F asgard-ai-agent-workshop dev
+# → http://localhost:5173</div></div>
+        </article>
+
+        <!-- CodeCard -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>CodeCard</b><code>&lt;CodeCard numbered&gt;</code></div><p class="spec__desc">可帶行號的程式碼卡。</p></div>
+          <div class="spec__stage dk"><div class="dk-codecard dk-codecard--numbered" style="margin-top:0"><pre class="dk-codecard__nums">1
+2
+3
+4</pre><pre class="dk-codecard__code">{
+  "mcpServers": {
+    "fs": { "command": "npx", "args": ["-y","@mcp/fs"] }
+  }
+}</pre></div></div>
+        </article>
+
+        <!-- ProductCard -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>ProductCard</b><code>&lt;ProductCard&gt;</code></div><p class="spec__desc">Asgard 產品卡，每個產品有專屬 accent（Odin/Mimir/Sindri/Heimdall/Yggdrasil/Asgard）。</p></div>
+          <div class="spec__stage dk"><div class="dk-cardgrid--3" style="margin-top:0">
+            <div class="dk-card dk-product dk-product--odin"><div class="dk-product__head"><span class="dk-product__icon"><img src="assets/odin-logo-color.svg" alt="Odin" /></span><div><h3 style="font-size:18px">Odin</h3><span style="font:11px var(--font-mono);color:var(--muted)">Orchestration</span></div></div><p style="color:var(--muted);font-size:14px;line-height:1.4">多 agent 編排與路由。</p></div>
+            <div class="dk-card dk-product dk-product--heimdall"><div class="dk-product__head"><span class="dk-product__icon"><img src="assets/heimdall-logo-color.svg" alt="Heimdall" /></span><div><h3 style="font-size:18px">Heimdall</h3><span style="font:11px var(--font-mono);color:var(--muted)">Governance</span></div></div><p style="color:var(--muted);font-size:14px;line-height:1.4">身分、審批與軌跡治理。</p></div>
+            <div class="dk-card dk-product dk-product--yggdrasil"><div class="dk-product__head"><span class="dk-product__icon"><img src="assets/yggdrasil-logo-color.svg" alt="Yggdrasil" /></span><div><h3 style="font-size:18px">Yggdrasil</h3><span style="font:11px var(--font-mono);color:var(--muted)">Runtime</span></div></div><p style="color:var(--muted);font-size:14px;line-height:1.4">沙箱化執行底座。</p></div>
+          </div></div>
+        </article>
+
+        <!-- DemoShot -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>DemoShot</b><code>&lt;DemoShot&gt;</code></div><p class="spec__desc">示範截圖，框線 + 圓角 + 極淡陰影，可帶說明。多種尺寸變體。</p></div>
+          <div class="spec__stage dk"><img class="dk-demoshot dk-demoshot--medium" src="assets/demo-mcp-live-query.png" alt="MCP live query demo" style="margin-top:0" /><div class="dk-demoshot__caption">Demo 1 · MCP server 即時查詢 CRM 資料</div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- LAYOUTS ---------- -->
+    <section id="layouts">
+      <div class="sec-head">
+        <div class="eyebrow">Components / 17</div>
+        <h2>Layouts</h2>
+        <p>把 primitives 組成整版圖解 —— 技術簡報常見的堆疊、流程、矩陣、時間軸、狀態機與泳道。</p>
+      </div>
+
+      <div class="grid grid--layouts">
+        <!-- LayerStack -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>LayerStack</b><code>&lt;LayerStack&gt;</code></div><p class="spec__desc">分層堆疊：每層一個 mono 標籤 + 一排 chips（或註解）。本 deck 的招牌六層架構。</p></div>
+          <div class="spec__stage dk"><div class="dk-layerstack" style="margin-top:0">
+            <div class="dk-layer"><div class="dk-layer__label">Governance</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Identity</span><span class="dk-layer__item">Approval</span><span class="dk-layer__item">Trace</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Session</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Events</span><span class="dk-layer__item">Checkpoint</span><span class="dk-layer__item">Recovery</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Sandbox</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Filesystem</span><span class="dk-layer__item">Commands</span><span class="dk-layer__item">Isolation</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Harness</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Plan</span><span class="dk-layer__item">Route</span><span class="dk-layer__item">Retry</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Tools / MCP</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">CRM</span><span class="dk-layer__item">ERP</span><span class="dk-layer__item">DB / API</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Model</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Understand</span><span class="dk-layer__item">Infer</span><span class="dk-layer__item">Generate</span></div></div></div>
+          </div></div>
+        </article>
+
+        <!-- FlowDiagram + Diagram -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>FlowDiagram</b><code>&lt;FlowDiagram&gt;</code><code>+ Diagram frame</code></div><p class="spec__desc">水平流程：Node 之間以琥珀色箭頭串接，外層用 Diagram 邊框（頂端漸層 hairline）。</p></div>
+          <div class="spec__stage dk"><div class="dk-diagram" style="margin-top:0"><div class="dk-flow" style="grid-template-columns:1fr 34px 1fr 34px 1fr 34px 1fr">
+            <div class="dk-node"><b>User</b><span>下達任務</span></div><div class="dk-flow__arrow">→</div>
+            <div class="dk-node"><b>Harness</b><span>規劃與路由</span></div><div class="dk-flow__arrow">→</div>
+            <div class="dk-node"><b>Tools / MCP</b><span>呼叫外部系統</span></div><div class="dk-flow__arrow">→</div>
+            <div class="dk-node"><b>Result</b><span>交付成果</span></div>
+          </div></div></div>
+        </article>
+
+        <!-- Steps -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Steps</b><code>&lt;Steps&gt;</code></div><p class="spec__desc">六格等寬步驟，編號用琥珀 mono。</p></div>
+          <div class="spec__stage dk"><div class="dk-steps" style="margin-top:0">
+            <div class="dk-step"><b>01</b><span>建立共同語言</span></div>
+            <div class="dk-step"><b>02</b><span>拆解 MCP</span></div>
+            <div class="dk-step"><b>03</b><span>設計 Skill</span></div>
+            <div class="dk-step"><b>04</b><span>沙箱執行</span></div>
+            <div class="dk-step"><b>05</b><span>打包 Plugin</span></div>
+            <div class="dk-step"><b>06</b><span>治理上線</span></div>
+          </div></div>
+        </article>
+
+        <!-- TwoColumn / CardGrid -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>TwoColumn · CardGrid</b><code>&lt;TwoColumn&gt;</code><code>&lt;CardGrid cols&gt;</code></div><p class="spec__desc">通用分欄。TwoColumn 支援 1:1 / 2:1 / 1:2；CardGrid 提供 2/3/4 欄網格。</p></div>
+          <div class="spec__stage dk"><div class="dk-twocol dk-twocol--right-heavy" style="margin-top:0">
+            <div class="dk-card"><h3>Chat</h3><p>單輪問答，使用者主導每一步。</p></div>
+            <div class="dk-card dk-card--strong"><h3>Agent</h3><p>可委派的多步任務：自行規劃、呼叫工具、檢查結果並重試，直到達成目標。</p></div>
+          </div></div>
+        </article>
+
+        <!-- Matrix -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Matrix</b><code>&lt;Matrix&gt;</code></div><p class="spec__desc">比較矩陣，表頭品牌底色、儲存格 panel 底。</p></div>
+          <div class="spec__stage dk"><table class="dk-matrix" style="margin-top:0">
+            <thead><tr><th>面向</th><th>MCP</th><th>CLI</th></tr></thead>
+            <tbody>
+              <tr><td>介面</td><td>結構化 tool schema</td><td>文字參數</td></tr>
+              <tr><td>憑證邊界</td><td>由 host 注入</td><td>繼承 shell 環境</td></tr>
+              <tr><td>適用</td><td>需治理的企業整合</td><td>快速腳本與本機任務</td></tr>
+            </tbody>
+          </table></div>
+        </article>
+
+        <!-- Table -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Table</b><code>&lt;Table&gt;</code><code>financial · striped</code></div><p class="spec__desc">資料表，支援數字右對齊、斑馬紋，以及 <code>data-total</code> / <code>data-highlight</code> 列。</p></div>
+          <div class="spec__stage dk"><table class="dk-table dk-table--financial dk-table--striped" style="margin-top:0">
+            <thead><tr><th>方案</th><th>席次</th><th>月費</th></tr></thead>
+            <tbody>
+              <tr><td>Starter</td><td>5</td><td>$0</td></tr>
+              <tr data-highlight><td>Team</td><td>25</td><td>$480</td></tr>
+              <tr><td>Enterprise</td><td>無限</td><td>洽談</td></tr>
+              <tr data-total><td>年度合計</td><td>—</td><td>$5,760</td></tr>
+            </tbody>
+          </table></div>
+        </article>
+
+        <!-- GlanceGrid -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>GlanceGrid</b><code>&lt;GlanceGrid&gt;</code></div><p class="spec__desc">關鍵數據速覽，左側品牌色細邊。</p></div>
+          <div class="spec__stage dk"><div class="dk-glance" style="margin-top:0">
+            <div class="dk-glance__cell"><div class="dk-glance__label">Task Success</div><div class="dk-glance__value">99.2%</div><div class="dk-glance__note">三檔 demo 平均完成率</div></div>
+            <div class="dk-glance__cell"><div class="dk-glance__label">Median Latency</div><div class="dk-glance__value">1.8s</div><div class="dk-glance__note">含工具呼叫往返</div></div>
+            <div class="dk-glance__cell"><div class="dk-glance__label">Cost / Task</div><div class="dk-glance__value">$0.04</div><div class="dk-glance__note">以企業均價估算</div></div>
+            <div class="dk-glance__cell"><div class="dk-glance__label">Adoption</div><div class="dk-glance__value">30+</div><div class="dk-glance__note">導入中的企業團隊</div></div>
+          </div></div>
+        </article>
+
+        <!-- Timeline -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Timeline</b><code>&lt;Timeline&gt;</code></div><p class="spec__desc">水平里程碑，圓點 + 標籤 + 標題 + 註。</p></div>
+          <div class="spec__stage dk"><div class="dk-timeline" style="margin-top:0">
+            <div class="dk-timeline__item"><div class="dk-timeline__dot"></div><div class="dk-timeline__label">Q1</div><div class="dk-timeline__title">建立共同語言</div><div class="dk-timeline__note">Chat / Agent / 六層</div></div>
+            <div class="dk-timeline__item"><div class="dk-timeline__dot"></div><div class="dk-timeline__label">Q2</div><div class="dk-timeline__title">工具與 MCP</div><div class="dk-timeline__note">接入第一個系統</div></div>
+            <div class="dk-timeline__item"><div class="dk-timeline__dot"></div><div class="dk-timeline__label">Q3</div><div class="dk-timeline__title">沙箱與治理</div><div class="dk-timeline__note">身分 / 審批 / 軌跡</div></div>
+            <div class="dk-timeline__item"><div class="dk-timeline__dot"></div><div class="dk-timeline__label">Q4</div><div class="dk-timeline__title">Production 上線</div><div class="dk-timeline__note">三檔 demo 落地</div></div>
+          </div></div>
+        </article>
+
+        <!-- StateMachine -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>StateMachine</b><code>&lt;StateMachine&gt;</code></div><p class="spec__desc">狀態 pill + 轉移箭頭（可標事件）+ 回圈標記。</p></div>
+          <div class="spec__stage dk"><div class="dk-machine" style="margin-top:0">
+            <div class="dk-state">Plan</div>
+            <div class="dk-machine__transition"><span class="dk-machine__arrow">→</span><span class="dk-machine__on">tool call</span></div>
+            <div class="dk-state">Act</div>
+            <div class="dk-machine__transition"><span class="dk-machine__arrow">→</span><span class="dk-machine__on">observe</span></div>
+            <div class="dk-state">Reflect</div>
+            <div class="dk-machine__loop">↺ until goal met</div>
+          </div></div>
+        </article>
+
+        <!-- Funnel -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Funnel</b><code>&lt;Funnel&gt;</code></div><p class="spec__desc">漏斗 / 比例條，品牌色填充 + 百分比。</p></div>
+          <div class="spec__stage dk"><div class="dk-funnel" style="margin-top:0">
+            <div class="dk-funnel__row"><span class="dk-funnel__label">試用</span><div class="dk-funnel__track"><div class="dk-funnel__fill" style="width:100%"></div><span class="dk-funnel__count">1,200</span></div><span class="dk-funnel__pct">100%</span></div>
+            <div class="dk-funnel__row"><span class="dk-funnel__label">接入工具</span><div class="dk-funnel__track"><div class="dk-funnel__fill" style="width:64%"></div><span class="dk-funnel__count">768</span></div><span class="dk-funnel__pct">64%</span></div>
+            <div class="dk-funnel__row"><span class="dk-funnel__label">上線治理</span><div class="dk-funnel__track"><div class="dk-funnel__fill" style="width:38%"></div><span class="dk-funnel__count">456</span></div><span class="dk-funnel__pct">38%</span></div>
+            <div class="dk-funnel__row"><span class="dk-funnel__label">擴大採用</span><div class="dk-funnel__track"><div class="dk-funnel__fill" style="width:21%"></div><span class="dk-funnel__count">252</span></div><span class="dk-funnel__pct">21%</span></div>
+          </div></div>
+        </article>
+
+        <!-- Swimlane -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Swimlane</b><code>&lt;Swimlane&gt;</code></div><p class="spec__desc">角色 × 階段的泳道矩陣。</p></div>
+          <div class="spec__stage dk"><div class="dk-swimlane" style="margin-top:0;grid-template-columns:160px repeat(3,1fr)">
+            <div></div>
+            <div class="dk-swimlane__colhead">Plan</div><div class="dk-swimlane__colhead">Execute</div><div class="dk-swimlane__colhead">Govern</div>
+            <div class="dk-swimlane__actor">User</div>
+            <div class="dk-swimlane__cell">下達任務目標</div><div class="dk-swimlane__cell"></div><div class="dk-swimlane__cell">審批高風險動作</div>
+            <div class="dk-swimlane__actor">Agent</div>
+            <div class="dk-swimlane__cell">拆解步驟</div><div class="dk-swimlane__cell">呼叫工具並重試</div><div class="dk-swimlane__cell">寫入軌跡</div>
+          </div></div>
+        </article>
+
+        <!-- Tree -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Tree</b><code>&lt;Tree&gt;</code></div><p class="spec__desc">遞迴階層樹。</p></div>
+          <div class="spec__stage dk"><ul class="dk-tree" style="margin-top:0"><li class="dk-tree__node"><span class="dk-tree__label">Asgard Platform</span>
+            <ul class="dk-tree__children">
+              <li class="dk-tree__node"><span class="dk-tree__label">Odin · Orchestration</span></li>
+              <li class="dk-tree__node"><span class="dk-tree__label">Heimdall · Governance</span></li>
+              <li class="dk-tree__node"><span class="dk-tree__label">Yggdrasil · Runtime</span>
+                <ul class="dk-tree__children"><li class="dk-tree__node"><span class="dk-tree__label">Sandbox</span></li><li class="dk-tree__node"><span class="dk-tree__label">Memory</span></li></ul>
+              </li>
+            </ul>
+          </li></ul></div>
+        </article>
+
+        <!-- TermRow -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>TermRow</b><code>&lt;TermRow&gt;</code></div><p class="spec__desc">術語 + 定義 + 範例，三欄。</p></div>
+          <div class="spec__stage dk"><div class="dk-termstack" style="margin-top:0">
+            <div class="dk-termrow"><b>MCP</b><p>模型與工具之間的標準介面協定。</p><small>例：把 CRM 包成 MCP server</small></div>
+            <div class="dk-termrow"><b>Harness</b><p>驅動 agent 規劃與重試的 runtime。</p><small>例：Claude Code、Codex</small></div>
+          </div></div>
+        </article>
+
+        <!-- SectionHeader + SectionTitle -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>SectionHeader · SectionTitle</b><code>&lt;SectionHeader&gt;</code><code>&lt;SectionTitle&gt;</code></div><p class="spec__desc">章節分隔：SectionHeader 是 eyebrow + 標題 + 分隔線；SectionTitle 是標題 + lead 段。</p></div>
+          <div class="spec__stage dk">
+            <div class="dk-sectionhead"><div class="dk-sectionhead__eyebrow">Chapter 03</div><h3 class="dk-sectionhead__title">Skill 與能力封裝</h3></div>
+            <div class="dk-sectionhead__rule" style="margin-bottom:18px"></div>
+            <div class="dk-sectiontitle" style="margin-top:0"><h2 style="font-size:34px">把能力打包成可載入的 Skill</h2><p class="dk-sectiontitle__lead">漸進式揭露：先給路由摘要，命中後才載入完整內容，控制 context 成本。</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- EXTENDED ---------- -->
+    <section id="extended">
+      <div class="sec-head">
+        <div class="eyebrow">Components / +9 新增</div>
+        <h2>Extended</h2>
+        <p>對照常見設計系統（Atlassian、Red Hat、shadcn）與簡報版型補上的 9 個高頻元件。全部沿用既有 token 的語意色（<code>--good</code> / <code>--warn</code> / <code>--bad</code> / <code>--brand-on-dark</code>），未新增任何顏色。</p>
+      </div>
+
+      <div class="grid">
+        <!-- Callout -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Callout</b><code>&lt;Callout variant&gt;</code></div><p class="spec__desc">語意提示框：info / good / warn / bad，左側 accent 邊 + tint 底 + 圖示。比 Talkbox 多了狀態色。</p></div>
+          <div class="spec__stage dk"><div class="stack-gap" style="display:flex;flex-direction:column;gap:12px">
+            <div class="dk-callout dk-callout--info" style="margin-top:0"><span class="dk-callout__icon">i</span><div class="dk-callout__body"><div class="dk-callout__title">提示</div><p>遠端能力建議用 HTTP MCP server，本機工具用 stdio。</p></div></div>
+            <div class="dk-callout dk-callout--good" style="margin-top:0"><span class="dk-callout__icon">&#10003;</span><div class="dk-callout__body"><div class="dk-callout__title">通過</div><p>三檔 demo 任務成功率達 99.2%，可進入治理上線。</p></div></div>
+            <div class="dk-callout dk-callout--warn" style="margin-top:0"><span class="dk-callout__icon">!</span><div class="dk-callout__body"><div class="dk-callout__title">注意</div><p>高風險動作須經人工審批，並寫入軌跡。</p></div></div>
+            <div class="dk-callout dk-callout--bad" style="margin-top:0"><span class="dk-callout__icon">&#10005;</span><div class="dk-callout__body"><div class="dk-callout__title">禁止</div><p>切勿讓 agent 繼承 shell 環境憑證跨越邊界。</p></div></div>
+          </div></div>
+        </article>
+
+        <!-- Badge -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Badge</b><code>&lt;Badge status&gt;</code></div><p class="spec__desc">語意狀態 pill，含狀態圓點。Tag 之外的「狀態」表達。</p></div>
+          <div class="spec__stage dk"><div class="row"><span class="dk-badge dk-badge--good">Production</span><span class="dk-badge dk-badge--info">Beta</span><span class="dk-badge dk-badge--warn">Preview</span><span class="dk-badge dk-badge--bad">Deprecated</span><span class="dk-badge dk-badge--neutral">Draft</span></div></div>
+        </article>
+
+        <!-- Avatar / Persona -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Avatar · Persona</b><code>&lt;Persona&gt;</code><code>&lt;Facepile&gt;</code></div><p class="spec__desc">頭像 + 姓名 + 角色；圖片或縮寫。Facepile 疊放群組。</p></div>
+          <div class="spec__stage dk"><div style="display:flex;flex-direction:column;gap:16px">
+            <div class="dk-persona"><img class="dk-avatar" src="assets/avatar.png" alt="WJ Wang" /><div><div class="dk-persona__name">WJ Wang</div><div class="dk-persona__role">Platform Architect · Asgard AI</div></div></div>
+            <div class="dk-facepile"><span class="dk-avatar dk-avatar--initials">OD</span><span class="dk-avatar dk-avatar--initials">HM</span><span class="dk-avatar dk-avatar--initials">YG</span><span class="dk-avatar dk-avatar--initials">+6</span></div>
+          </div></div>
+        </article>
+
+        <!-- BigStat -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>BigStat</b><code>&lt;BigStat&gt;</code></div><p class="spec__desc">單一巨型 KPI 數字 + 標籤 + 漲跌。</p></div>
+          <div class="spec__stage dk"><div class="dk-bigstat"><div class="dk-bigstat__value"><em>99.2</em>%</div><div class="dk-bigstat__label">Task Success Rate</div><div class="dk-bigstat__delta dk-bigstat__delta--up">&#9650; 6.4% vs. baseline</div></div></div>
+        </article>
+
+        <!-- ProgressRing -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>ProgressRing</b><code>&lt;ProgressRing pct&gt;</code></div><p class="spec__desc">環形百分比（conic-gradient + mask 甜甜圈）。</p></div>
+          <div class="spec__stage dk"><div class="row" style="gap:24px;justify-content:center">
+            <div class="dk-ring" style="--pct:72"><div class="dk-ring__track"></div><div class="dk-ring__label">72%</div></div>
+            <div class="dk-ring dk-ring--good" style="--pct:99"><div class="dk-ring__track"></div><div class="dk-ring__label">99%</div></div>
+            <div class="dk-ring dk-ring--warn" style="--pct:38"><div class="dk-ring__track"></div><div class="dk-ring__label">38%</div></div>
+          </div></div>
+        </article>
+
+        <!-- Checklist -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Checklist</b><code>&lt;Checklist&gt;</code></div><p class="spec__desc">✓ / ✕ 語意清單，用於 production checklist。</p></div>
+          <div class="spec__stage dk"><ul class="dk-checklist" style="margin-top:0">
+            <li class="is-yes">身分鏈與審批流已接好</li>
+            <li class="is-yes">所有工具呼叫寫入軌跡</li>
+            <li class="is-yes">沙箱隔離檔案系統與指令</li>
+            <li class="is-no">尚未設定成本上限與告警</li>
+          </ul></div>
+        </article>
+
+        <!-- Legend -->
+        <article class="spec">
+          <div class="spec__head"><div class="spec__name"><b>Legend</b><code>&lt;Legend&gt;</code></div><p class="spec__desc">圖表 / 圖解的色彩圖例。</p></div>
+          <div class="spec__stage dk"><div class="dk-legend" style="margin-top:0">
+            <span class="dk-legend__item"><span class="dk-legend__swatch"></span>Model</span>
+            <span class="dk-legend__item"><span class="dk-legend__swatch" style="--accent:var(--good)"></span>Tools</span>
+            <span class="dk-legend__item"><span class="dk-legend__swatch" style="--accent:var(--amber)"></span>Harness</span>
+            <span class="dk-legend__item"><span class="dk-legend__swatch" style="--accent:var(--purple)"></span>Governance</span>
+          </div></div>
+        </article>
+
+        <!-- Quote with attribution -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Quote · attributed</b><code>&lt;Quote cite&gt;</code></div><p class="spec__desc">Quote 加上 Persona 署名 —— 引言頁的標準寫法。</p></div>
+          <div class="spec__stage dk">
+            <div class="dk-quote" style="margin-top:0">把 AI 從會聊天的工具，變成能交辦工作、可被治理的數位同事。</div>
+            <div class="dk-persona" style="margin-top:16px"><img class="dk-avatar" src="assets/avatar.png" alt="WJ Wang" /><div><div class="dk-persona__name">WJ Wang</div><div class="dk-persona__role">Platform Architect · Asgard AI</div></div></div>
+          </div>
+        </article>
+
+        <!-- Agenda -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Agenda</b><code>&lt;Agenda&gt;</code></div><p class="spec__desc">編號議程 / 目錄，可帶時間與「進行中 / 已完成」狀態。</p></div>
+          <div class="spec__stage dk"><div class="dk-agenda" style="margin-top:0">
+            <div class="dk-agenda__row is-done"><span class="dk-agenda__num">01</span><div><div class="dk-agenda__title">建立共同語言</div><div class="dk-agenda__sub">Chat / Agent / 六層架構</div></div><span class="dk-agenda__time">10 min</span></div>
+            <div class="dk-agenda__row is-active"><span class="dk-agenda__num">02</span><div><div class="dk-agenda__title">拆解 MCP 與工具接入</div><div class="dk-agenda__sub">stdio · HTTP · 憑證邊界</div></div><span class="dk-agenda__time">15 min</span></div>
+            <div class="dk-agenda__row"><span class="dk-agenda__num">03</span><div><div class="dk-agenda__title">Skill · Sandbox · Plugin</div><div class="dk-agenda__sub">能力封裝與沙箱執行</div></div><span class="dk-agenda__time">20 min</span></div>
+            <div class="dk-agenda__row"><span class="dk-agenda__num">04</span><div><div class="dk-agenda__title">治理與落地</div><div class="dk-agenda__sub">身分 / 審批 / 軌跡 · 三檔 demo</div></div><span class="dk-agenda__time">15 min</span></div>
+          </div></div>
+        </article>
+
+        <!-- Compare -->
+        <article class="spec spec--wide">
+          <div class="spec__head"><div class="spec__name"><b>Compare</b><code>&lt;Compare&gt;</code></div><p class="spec__desc">優劣 / 取捨雙欄，綠加號 vs. 紅減號。</p></div>
+          <div class="spec__stage dk"><div class="dk-compare" style="margin-top:0">
+            <div class="dk-compare__col dk-compare__col--pros"><div class="dk-compare__head">MCP <span class="dk-badge dk-badge--good">建議</span></div><ul><li>結構化 tool schema，易治理</li><li>憑證由 host 注入，邊界清楚</li><li>適合企業系統整合</li></ul></div>
+            <div class="dk-compare__col dk-compare__col--cons"><div class="dk-compare__head">CLI <span class="dk-badge dk-badge--warn">謹慎</span></div><ul><li>繼承 shell 環境，邊界模糊</li><li>純文字參數，難結構化驗證</li><li>僅適合本機快速腳本</li></ul></div>
+          </div></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- EXAMPLE SLIDE ---------- -->
+    <section id="slide">
+      <div class="sec-head">
+        <div class="eyebrow">In context</div>
+        <h2>Example slide</h2>
+        <p>把 token、primitive 與 layout 組成一張真實的 16:9 投影片 —— 即 deck 中的「六層架構」頁。</p>
+      </div>
+      <div class="slide-wrap dk">
+        <div class="dk-slide">
+          <span class="dk-kicker">Six-Layer Stack</span>
+          <h2 style="margin-top:16px">Agent 系統的六層技術架構</h2>
+          <div class="dk-layerstack" style="margin-top:22px;gap:7px">
+            <div class="dk-layer"><div class="dk-layer__label">Governance</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Identity</span><span class="dk-layer__item">Approval</span><span class="dk-layer__item">Trace</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Session / Memory</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Events</span><span class="dk-layer__item">Checkpoint</span><span class="dk-layer__item">Recovery</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Sandbox</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Filesystem</span><span class="dk-layer__item">Commands</span><span class="dk-layer__item">Isolation</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Harness</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Plan</span><span class="dk-layer__item">Route</span><span class="dk-layer__item">Retry</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Tools / MCP</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">CRM</span><span class="dk-layer__item">ERP</span><span class="dk-layer__item">DB / API</span></div></div></div>
+            <div class="dk-layer"><div class="dk-layer__label">Model</div><div class="dk-layer__content"><div class="dk-layer__items"><span class="dk-layer__item">Understand</span><span class="dk-layer__item">Infer</span><span class="dk-layer__item">Generate</span></div></div></div>
+          </div>
+          <div class="dk-talkbox dk-talkbox--compact" style="margin-top:16px"><p>六層分離讓模型、工具、runtime、執行環境、狀態儲存與治理政策可以各自演進；這也是 agent 從 demo 走向 production 的基本拆分。</p></div>
+          <span class="dk-slideno">07 / 101</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- SHELL ---------- -->
+    <section id="shell">
+      <div class="sec-head">
+        <div class="eyebrow">In context</div>
+        <h2>Shell behaviour</h2>
+        <p>外殼 <code>Deck.tsx</code> 負責所有 deck 共用的導覽行為；投影片只管內容。</p>
+      </div>
+      <div class="shell-grid">
+        <div class="shell-card"><h4>橫向 carousel</h4><p>所有投影片在一條 <code>translateX</code> 軌道並排；垂直捲動由 <code>.slot</code> 容器擁有，<b style="color:var(--ink)">不要</b>在 slide 上加 <code>overflow-y</code>。</p></div>
+        <div class="shell-card"><h4>觸控手勢</h4><p>方向狀態機 + 8px dead zone：手勢確定為水平前不動 drag state，垂直捲動不會誤觸換頁。</p></div>
+        <div class="shell-card"><div class="kbd"><span>←</span><span>→</span><span>Space</span></div><h4>鍵盤導覽</h4><p>左右鍵 / 空白鍵換頁；hash 深層連結讓每頁可被直接分享。</p></div>
+        <div class="shell-card"><h4>Overview mode</h4><p>刻意只渲染文字卡片（編號 + section + 標題 + 主題色），避免行動裝置渲染上百張真實投影片崩潰。</p></div>
+        <div class="shell-card"><h4>章節分組</h4><p>選用的 <code>chapters.ts</code> 傳入 <code>DeckProvider</code>，在 overview 依章節分群；<code>startSlide</code> 為 1-indexed。</p></div>
+        <div class="shell-card"><h4>SSR-safe · 匯出</h4><p>所有 <code>window</code> 存取都在 effect / handler 內，<code>parseHash</code> 與 <code>discoverSlides</code> 為純函式。支援 Playwright 驅動的 PDF / ZIP 匯出。</p></div>
+      </div>
+
+      <footer>
+        <strong style="color:var(--ink)">Asgard deck-kit</strong> · 設計系統參考頁 · 由 <code>theme/tokens.css</code>、19 個 primitives、17 個 layouts 與 <code>+9</code> 個延伸元件構成。<br>
+        新增投影片：<code>decks/&lt;deck&gt;/src/slides/NN-name.tsx</code>，零補位、連續、自 01 起；一律從 <code>deck-kit</code> barrel 匯入。
+      </footer>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ---- click-to-copy swatches + tokens ----
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(html) {
+    toast.innerHTML = html;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+  }
+  document.querySelectorAll('[data-copy]').forEach(el => {
+    el.addEventListener('click', () => {
+      const val = el.getAttribute('data-copy');
+      const write = navigator.clipboard && navigator.clipboard.writeText
+        ? navigator.clipboard.writeText(val) : Promise.reject();
+      write.then(() => showToast('已複製 <code>' + val + '</code>'))
+           .catch(() => showToast('<code>' + val + '</code>'));
+    });
+  });
+
+  // ---- scrollspy nav ----
+  const links = [...document.querySelectorAll('#nav a')];
+  const byId = Object.fromEntries(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('is-active'));
+        const a = byId[e.target.id];
+        if (a) a.classList.add('is-active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section').forEach(s => spy.observe(s));
+</script>
+</body>
+</html>
