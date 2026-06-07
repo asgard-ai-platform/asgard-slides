@@ -1,0 +1,12 @@
+.value {
+  font-size: 64px; font-weight: 820; line-height: 1; letter-spacing: -0.02em;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.value em { color: var(--brand-on-dark); font-style: normal; }
+.label {
+  margin-top: 9px; font: 12px var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.delta { display: inline-flex; align-items: center; gap: 5px; margin-top: 11px; font-size: 14px; font-weight: 700; }
+.up { color: var(--good); }
+.down { color: var(--bad); }

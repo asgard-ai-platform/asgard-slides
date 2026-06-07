@@ -19,3 +19,5 @@ export { ValueAnchors } from "./ValueAnchors";
 export { CodeCard } from "./CodeCard";
 export { Callout } from "./Callout";
 export { Badge } from "./Badge";
+export { Avatar, Persona, Facepile } from "./Avatar";
+export { BigStat } from "./BigStat";
