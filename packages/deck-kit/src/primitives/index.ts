@@ -21,3 +21,8 @@ export { Callout } from "./Callout";
 export { Badge } from "./Badge";
 export { Avatar, Persona, Facepile } from "./Avatar";
 export { BigStat } from "./BigStat";
+export { ProgressRing } from "./ProgressRing";
+export { Checklist } from "./Checklist";
+export type { ChecklistItem } from "./Checklist";
+export { Legend } from "./Legend";
+export type { LegendItem } from "./Legend";
