@@ -58,7 +58,7 @@ export default function Cover() {
 }
 ```
 
-## New primitives
+## Extended primitives
 
 ### `Callout`
 
@@ -142,7 +142,7 @@ Horizontal row of color-swatch + label pairs — use alongside charts or diagram
 | --- | --- | --- |
 | `items` | `{ label: ReactNode; color: string }[]` | **required**; `color` is any CSS color, e.g. `"var(--good)"` |
 
-## New layouts
+## Extended layouts
 
 ### `Agenda`
 
@@ -172,9 +172,7 @@ Two-column pros/cons table.
 
 `CompareColumn`: `{ head: ReactNode; items: ReactNode[] }`.
 
-## Updated primitives
-
-### `Quote` — new `cite` prop
+## `Quote` · `cite` attribution
 
 `cite?: ReactNode` — attribution rendered below the quote (typically a `<Persona>`).
 
