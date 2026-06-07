@@ -17,3 +17,5 @@ export { ModuleNote } from "./ModuleNote";
 export { PricingCard } from "./PricingCard";
 export { ValueAnchors } from "./ValueAnchors";
 export { CodeCard } from "./CodeCard";
+export { Callout } from "./Callout";
+export { Badge } from "./Badge";
