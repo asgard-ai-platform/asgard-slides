@@ -21,7 +21,7 @@ export default function Slide() {
       </div>
 
       <span className={styles.kicker}>企業資料平台選型評估</span>
-      <h1>FineDataLink · Denodo · 開源自建 — 三條路線整體評估</h1>
+      <h1>套裝軟體 vs OpenSource — 企業資料平台路線整體評估</h1>
       <p className={styles.lead}>
         以「六階段角色框架」對標三條路線，並給出一條保留性價比與擴充性的階段演進路線。
       </p>

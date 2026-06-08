@@ -2,7 +2,7 @@
   "name": "asgard-data-platform-evaluation",
   "private": true,
   "version": "0.0.0",
-  "description": "企業資料平台選型評估：FineDataLink · Denodo · 開源自建 三條路線整體評估",
+  "description": "企業資料平台選型評估：套裝軟體 vs OpenSource 路線整體評估",
   "type": "module",
   "scripts": {
     "dev": "vite",
