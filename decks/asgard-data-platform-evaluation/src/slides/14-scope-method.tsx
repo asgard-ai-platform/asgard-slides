@@ -14,9 +14,9 @@ export default function Slide() {
       <h2>評估對象與三步方法</h2>
       <DashList
         items={[
-          "路線一：FineDataLink + FineReport/FineBI",
-          "路線二：Denodo",
-          "路線三：開源自建 + 顧問導入",
+          "路線一｜商用套裝（低代碼資料整合）：Informatica、Talend、Microsoft SSIS、Fivetran、FineDataLink 等——本報告以 FineDataLink 為代表",
+          "路線二｜資料虛擬化：TIBCO Data Virtualization、IBM Cloud Pak for Data、SAP HANA、Dremio、Denodo 等——本報告以 Denodo 為代表",
+          "路線三｜開源自建：Airflow / PostgreSQL / dbt / Iceberg / Trino + 顧問導入",
         ]}
       />
       <Steps

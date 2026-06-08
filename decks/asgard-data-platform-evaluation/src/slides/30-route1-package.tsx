@@ -2,7 +2,7 @@ import { Kicker, Table, Callout } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
 
 export const meta: SlideMeta = {
-  title: "商用套裝（FineDataLink 系）",
+  title: "商用套裝路線（以 FineDataLink 為例）",
   section: "三條路線深入評估",
   theme: "dark",
 };
@@ -11,7 +11,7 @@ export default function Slide() {
   return (
     <>
       <Kicker>路線一評估</Kicker>
-      <h2>商用套裝（FineDataLink 系）</h2>
+      <h2>商用套裝路線（以 FineDataLink 為例）</h2>
       <Table>
         <thead>
           <tr>

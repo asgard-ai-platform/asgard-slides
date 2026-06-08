@@ -2,7 +2,7 @@ import { Kicker, Table, Callout } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
 
 export const meta: SlideMeta = {
-  title: "資料虛擬化（Denodo）",
+  title: "資料虛擬化路線（以 Denodo 為例）",
   section: "三條路線深入評估",
   theme: "dark",
 };
@@ -11,7 +11,7 @@ export default function Slide() {
   return (
     <>
       <Kicker>路線二評估</Kicker>
-      <h2>資料虛擬化（Denodo）</h2>
+      <h2>資料虛擬化路線（以 Denodo 為例）</h2>
       <Table>
         <thead>
           <tr>
