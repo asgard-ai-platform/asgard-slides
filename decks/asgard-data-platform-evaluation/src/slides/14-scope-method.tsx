@@ -1,4 +1,4 @@
-import { Kicker, DashList, Steps } from "deck-kit";
+import { Kicker, DashList, Callout } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
 
 export const meta: SlideMeta = {
@@ -19,22 +19,11 @@ export default function Slide() {
           "路線三｜開源自建：Airflow / PostgreSQL / dbt / Iceberg / Trino + 顧問導入",
         ]}
       />
-      <Steps
-        items={[
-          {
-            label: "1",
-            body: "建立中立的「六階段角色框架」——先有一把共同的尺",
-          },
-          {
-            label: "2",
-            body: "把每個方案放進框架對標——看清「是什麼、不是什麼」",
-          },
-          {
-            label: "3",
-            body: "以適用情境條件做多維度評估——功能、地端、自主維運、擴充性、鎖定、AI、成本",
-          },
-        ]}
-      />
+      <Callout variant="info" title="三步評估方法">
+        <strong style={{ color: "var(--ink)" }}>一</strong> 建立中立的「六階段角色框架」——先有一把共同的尺；
+        <strong style={{ color: "var(--ink)" }}>二</strong> 把每個方案放進框架對標——看清「是什麼、不是什麼」；
+        <strong style={{ color: "var(--ink)" }}>三</strong> 以適用情境條件做多維度評估——功能、地端、自主維運、擴充性、鎖定、AI、成本。
+      </Callout>
     </>
   );
 }
