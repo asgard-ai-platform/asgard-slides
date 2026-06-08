@@ -1,4 +1,4 @@
-import { Kicker, Table } from "deck-kit";
+import { Kicker, Table, DemoShot } from "deck-kit";
 import type { SlideMeta } from "deck-kit";
 
 export const meta: SlideMeta = {
@@ -38,6 +38,11 @@ export default function Slide() {
           </tr>
         </tbody>
       </Table>
+      <DemoShot
+        src="assets/research/grafana-dashboard.png"
+        alt="Grafana 看板"
+        caption="Grafana 看板：KPI、趨勢、告警集中一頁"
+      />
     </>
   );
 }
