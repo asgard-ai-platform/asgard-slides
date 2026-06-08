@@ -1,0 +1,10 @@
+.brandLockup { display: flex; align-items: center; gap: 18px; min-height: 108px; margin-bottom: 0; }
+.logoOrb { position: relative; display: grid; place-items: center; width: 86px; height: 86px; flex: 0 0 auto; border: 1px solid rgba(45, 90, 138, 0.42); border-radius: 22px; background: rgba(20, 20, 19, 0.78); overflow: hidden; }
+.logoOrb img { width: 58px; height: 58px; object-fit: contain; }
+.brandName { color: var(--ink); font-size: 26px; line-height: 1.18; font-weight: 860; }
+.brandSub { margin-top: 7px; color: rgba(158, 193, 230, 0.78); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; }
+.kicker { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; padding: 6px 12px; border: 1px solid rgba(45, 90, 138, 0.30); border-radius: 999px; color: var(--cyan2); background: rgba(45, 90, 138, 0.10); font-size: 14px; font-weight: 760; letter-spacing: 0.08em; text-transform: uppercase; }
+.lead { max-width: 900px; margin-top: 12px; color: var(--muted); font-size: 22px; line-height: 1.38; font-weight: 520; }
+.meta { margin-top: 28px; display: flex; flex-direction: column; gap: 6px; }
+.speaker { color: var(--ink); font-size: 18px; font-weight: 680; }
+.event { color: var(--muted); font-size: 15px; letter-spacing: 0.06em; }
